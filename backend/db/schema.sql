@@ -21,6 +21,7 @@ CREATE TABLE users (
 
 CREATE TABLE posts (
     id SERIAL PRIMARY KEY,
+    post_image_url VARCHAR,
     owner_id INT REFERENCES users(id) ON DELETE CASCADE,
     content VARCHAR,
     time_stamp TIMESTAMP

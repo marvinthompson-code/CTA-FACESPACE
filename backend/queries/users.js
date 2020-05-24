@@ -48,7 +48,7 @@ const deleteUser = async (req, res, next) => {
             status: "Successful",
             message: "Removed a user",
             body: {
-                user
+                user: user
             }
         }) 
     } catch (error) {
@@ -68,7 +68,7 @@ const getSingleUserById = async (req, res, next) => {
             status: "Successful",
             message: "Retrieved a user by ID",
             body: {
-                singleUser
+                user: singleUser
             }
         });
     } catch (error) {
@@ -90,7 +90,7 @@ const getUserByName = async (req, res, next) => {
                 status: "Successful",
                 message: "Retrieved user by name",
                 body: {
-                    user
+                    user: user
                 }
             });
         }
@@ -112,7 +112,7 @@ const updateUserById = async (req, res, next) => {
             status: "Successful",
             message: "Successfully Updated a User by ID",
             body: {
-                user
+                user: user
             }
         })
     } catch (error) {
@@ -133,7 +133,7 @@ const updateProfilePic = async (req, res, next) => {
             status: "Successful",
             message: `Profile Picture for user at id:${id} has been Updated!`,
             body: {
-                user
+                user: user
             }
         })
     } catch (error) {
