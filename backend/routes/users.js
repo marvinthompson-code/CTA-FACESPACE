@@ -11,7 +11,7 @@ const {
 } = require('../queries/users');
 
 users.get("/", getAllUsers);
-users.get("/:id", getSingleUserById); // fix
+users.get("/:id", getSingleUserById); 
 users.get("/search/:username", getUserByName);
 users.post("/addUser", createNewUser);
 users.patch("/:id", updateUserById);

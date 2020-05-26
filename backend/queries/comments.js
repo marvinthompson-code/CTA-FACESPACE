@@ -108,6 +108,7 @@ const deleteSingleComment = async (req, res, next) => {
             status: "Unsuccessful",
             message: "Could not remove a single comment"
         })
+        next(error)
     }
 }
 

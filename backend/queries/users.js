@@ -141,7 +141,7 @@ const updateProfilePic = async (req, res, next) => {
             status: "Unsuccessful",
             message: "Could not update user"
         })
-        nezt(error)
+        next(error)
     }
 }
 
