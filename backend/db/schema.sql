@@ -1,12 +1,11 @@
-DROP DATABASE IF EXISTS face_space_db;
-CREATE DATABASE face_space_db; 
+-- DROP DATABASE IF EXISTS face_space_db;
+-- CREATE DATABASE face_space_db; 
 
-\c face_space_db;
+-- \c face_space_db;
 
 DROP TABLE IF EXISTS users; 
 DROP TABLE IF EXISTS posts;
 DROP TABLE IF EXISTS likes;
-DROP TABLE IF EXISTS comments;
 DROP TABLE IF EXISTS hashtags;
 
 CREATE TABLE users (
@@ -27,13 +26,6 @@ CREATE TABLE posts (
     time_stamp TIMESTAMP
 );
 
-CREATE TABLE comments (
-    id SERIAL PRIMARY KEY,
-    author_id INT REFERENCES users(id),
-    post_id INT REFERENCES posts(id),
-    comment VARCHAR,
-    time_stamp TIMESTAMP
-);
 
 CREATE TABLE hashtags (
     id SERIAL PRIMARY KEY,

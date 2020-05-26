@@ -11,21 +11,3 @@ VALUES
     (1, 'Wrote some really cool songs the other day!'),
     (1, 'Man, coding is hard. I should have went to art school.'),
     (1, 'Rice Krispies is undeniably the best cereal brand.');
-
-INSERT INTO comments
-    (author_id, comment)
-VALUES 
-    (1, 'I gotta Stop using Audacity man!');
-
-INSERT INTO hashtags
-    (owner_id, post_id, body)
-VALUES 
-    (1, 1, 'audio'),
-    (1, 1, 'recording'),
-    (1, 1, 'reaper'),
-    (1, 1, 'music'),
-    (1, 2, 'programmer'),
-    (1, 2, 'js'),
-    (1, 2, 'art'),
-    (1, 2, 'school'),
-    (1, 3, 'cereal');

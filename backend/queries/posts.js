@@ -39,7 +39,7 @@ const insertNewPost = async (req, res, next) => {
 const deletePost = async (req, res, next) => {
     try {
         let { id } = req.params
-        let post = await db.one("DELETE FROM posts WHERE id = $1 RETURNING *", [id])
+        let post = await db.one("DELETE FROM posts WHERE id = $1 RETURNING *", id)
         res.status(200).json({
             status: "Successful",
             message: "Successfully deleted a post!",
@@ -138,4 +138,5 @@ const getSinglePost = async (req, res, next) => {
         next(error)  
     }
 }
+
 module.exports = { getAllPosts, insertNewPost, deletePost, editPost, getAllPostsByHashtag, getAllPostsBySingleUser, getSinglePost }

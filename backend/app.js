@@ -12,14 +12,10 @@ app.use(bodyParser.json());
 const usersRouter = require('./routes/users');
 const postsRouter = require('./routes/posts');
 const likesRouter = require('./routes/likes');
-const hashtagsRouter = require('./routes/hashtags');
-const commentsRouter = require('./routes/comments');
 
 app.use('/users', usersRouter);
 app.use('/posts', postsRouter);
 app.use('/likes', likesRouter);
-app.use('/hashtags', hashtagsRouter);
-app.use('/comments', commentsRouter);
 
 app.listen(PORT, () => {
     console.log("Listening on port ", PORT)

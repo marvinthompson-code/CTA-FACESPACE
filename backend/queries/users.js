@@ -2,11 +2,12 @@ const db = require('../db/index');
 
 const getAllUsers = async (req, res, next) => {
     try {
+        let users = await db.any("SELECT * FROM users")
         res.status(200).json({
             status: "Success",
             message: "Retrieved Users",
             body: {
-                users: await db.any("SELECT * FROM users")
+                users
             }
         })
     } catch (error) {
@@ -68,7 +69,7 @@ const getSingleUserById = async (req, res, next) => {
             status: "Successful",
             message: "Retrieved a user by ID",
             body: {
-                user: singleUser
+                singleUser
             }
         });
     } catch (error) {
