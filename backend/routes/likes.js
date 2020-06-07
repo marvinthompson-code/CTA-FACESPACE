@@ -1,4 +1,5 @@
 const likes = require('express').Router();
+const { checkFirebaseToken } = require('../middleware/auth')
 
 const {
     getLikesSinglePost,

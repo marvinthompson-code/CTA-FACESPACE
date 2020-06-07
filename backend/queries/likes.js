@@ -43,13 +43,14 @@ const addSingleLike = async (req, res, next) => {
 const deleteSingleLike = async (req, res, next) => {
     try {
         let { liker_id, post_id } = req.params
+        let deleted = await db.one("DELETE FROM likes WHERE liker_id = $1 AND post_id = $2 RETURNING * ", [liker_id, post_id])
         res.status(200).json({
             status: "Successful",
             message: "Successfully deleted a like",
             body: {
                 liker_id: liker_id,
                 post_id: post_id,
-                result: await db.one("DELETE FROM likes WHERE liker_id = $1 AND post_id = $2 RETURNING * ", [liker_id, post_id])
+                result: deleted
             }
         })
     } catch (error) {

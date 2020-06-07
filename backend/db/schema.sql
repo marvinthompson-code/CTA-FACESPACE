@@ -1,7 +1,7 @@
--- DROP DATABASE IF EXISTS face_space_db;
--- CREATE DATABASE face_space_db; 
+DROP DATABASE IF EXISTS face_space_database;
+CREATE DATABASE face_space_database; 
 
--- \c face_space_db;
+\c face_space_database;
 
 DROP TABLE IF EXISTS users; 
 DROP TABLE IF EXISTS posts;
@@ -9,7 +9,7 @@ DROP TABLE IF EXISTS likes;
 DROP TABLE IF EXISTS hashtags;
 
 CREATE TABLE users (
-    id SERIAL PRIMARY KEY,
+    id VARCHAR PRIMARY KEY,
     email VARCHAR UNIQUE,
     username VARCHAR,
     password VARCHAR,
@@ -21,7 +21,7 @@ CREATE TABLE users (
 CREATE TABLE posts (
     id SERIAL PRIMARY KEY,
     post_image_url VARCHAR,
-    owner_id INT REFERENCES users(id) ON DELETE CASCADE,
+    owner_id VARCHAR REFERENCES users(id) ON DELETE CASCADE,
     content VARCHAR,
     time_stamp TIMESTAMP
 );
@@ -29,14 +29,14 @@ CREATE TABLE posts (
 
 CREATE TABLE hashtags (
     id SERIAL PRIMARY KEY,
-    owner_id INT REFERENCES users(id) ON DELETE CASCADE,
+    owner_id VARCHAR REFERENCES users(id) ON DELETE CASCADE,
     post_id INT REFERENCES posts(id) ON DELETE CASCADE,
     body VARCHAR
 );
 
 CREATE TABLE likes (
     id SERIAL PRIMARY KEY,
-    liker_id INT REFERENCES users(id) ON DELETE CASCADE,
+    liker_id VARCHAR REFERENCES users(id) ON DELETE CASCADE,
     post_id INT REFERENCES posts(id) ON DELETE CASCADE, 
     CONSTRAINT UC_like UNIQUE(liker_id, post_id)
 );

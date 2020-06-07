@@ -21,14 +21,14 @@ const getAllUsers = async (req, res, next) => {
 
 const createNewUser = async (req, res, next) => {
     try {
-        let {email, username, password, full_name, profile_picture, bio } = req.body
-        let user = await db.one("INSERT INTO users (email, username, password, full_name, profile_picture, bio) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *", 
-        [email, username, password, full_name, profile_picture, bio]
+        let {email, username, password, full_name, profile_picture, bio, id} = req.body
+        let user = await db.one("INSERT INTO users (email, username, password, full_name, profile_picture, bio, id) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *", 
+        [email, username, password, full_name, profile_picture, bio, id]
         );
         res.status(200).json({
-            statsu: "Success",
+            status: "Success",
             message: "Created new User",
-            body: user
+            user
         })
     } catch (error) {
         res.status(404).json({
@@ -49,7 +49,7 @@ const deleteUser = async (req, res, next) => {
             status: "Successful",
             message: "Removed a user",
             body: {
-                user: user
+                user
             }
         }) 
     } catch (error) {
@@ -64,7 +64,7 @@ const deleteUser = async (req, res, next) => {
 const getSingleUserById = async (req, res, next) => {
     try {
         let { id } = req.params
-        let singleUser = await db.one("SELECT FROM users WHERE id = $1", [id])
+        let singleUser = await db.one("SELECT * FROM users WHERE id = $1", [id])
         res.status(200).json({
             status: "Successful",
             message: "Retrieved a user by ID",
@@ -84,14 +84,14 @@ const getSingleUserById = async (req, res, next) => {
 const getUserByName = async (req, res, next) => {
     try {
         let { username } = req.params 
-        let user = await db.one("SELECT FROM users WHERE username = $1", [username])
+        let user = await db.one("SELECT * FROM users WHERE username = $1", [username])
         console.log(user)
         if (user) {
             res.status(200).json({
                 status: "Successful",
                 message: "Retrieved user by name",
                 body: {
-                    user: user
+                    user
                 }
             });
         }
@@ -113,7 +113,7 @@ const updateUserById = async (req, res, next) => {
             status: "Successful",
             message: "Successfully Updated a User by ID",
             body: {
-                user: user
+                user
             }
         })
     } catch (error) {
@@ -134,7 +134,7 @@ const updateProfilePic = async (req, res, next) => {
             status: "Successful",
             message: `Profile Picture for user at id:${id} has been Updated!`,
             body: {
-                user: user
+                user
             }
         })
     } catch (error) {

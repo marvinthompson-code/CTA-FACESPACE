@@ -1,4 +1,5 @@
 const posts = require('express').Router();
+const { checkFirebaseToken } = require('../middleware/auth')
 
 const {
     getAllPosts,
@@ -16,6 +17,6 @@ posts.get("/hashtag/:search", getAllPostsByHashtag);
 posts.get("/ownerID/:owner_id", getAllPostsBySingleUser);
 posts.patch("/:id", editPost);
 posts.delete("/:id", deletePost);
-posts.post("/", insertNewPost);
+posts.post("/", checkFirebaseToken, insertNewPost);
 
 module.exports = posts;
