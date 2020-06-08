@@ -106,7 +106,7 @@ const getAllPostsByHashtag = async (req, res, next) => {
 const getAllPostsBySingleUser = async (req, res, next) => {
     try {
         let { id } = req.params; 
-        let posts = await db.any("SELECT * FROM posts JOIN users ON posts.owner_id = users.id WHERE (owner_id = $1) ORDER BY posts.id DESC", [id]);
+        let posts = await db.any("SELECT * FROM posts JOIN users ON posts.owner_id = users.id WHERE posts.owner_id = $1 ORDER BY posts.id DESC", [id]);
         res.status(200).json({
             status: "Successful",
             message: `Successfully Retrieved all Posts by User ID`,
