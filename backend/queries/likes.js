@@ -58,7 +58,7 @@ const deleteSingleLike = async (req, res, next) => {
             status: "Unsuccessful",
             message: "Could not delete a like"
         })
-        next(error)
+        next(error);
     }
 }
 
