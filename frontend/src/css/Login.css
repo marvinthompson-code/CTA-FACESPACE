@@ -1,0 +1,40 @@
+.login {
+    display: flex;
+    flex-direction: column;
+    /* padding-top: 50px; */
+    transition-timing-function: ease-in-out;
+    align-items: center;
+    width: 100%;
+    /* background-color: red; */
+}
+
+.submitButton {
+    width: 15%;
+    height: 30px;
+    font-size: large;
+    padding-bottom: 15px;
+}
+
+.navItem {
+    padding-left: 30px;
+}
+
+.loginForm {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-style: solid;
+    margin: auto;
+    margin-top: 10%;
+    width: 45%;
+    border-radius: 10px;
+    border-color: lightgray;
+    background-color: white;
+    border-width: thin;
+}
+
+body {
+    background-image: url('../css/profileImages/abstract-hand-painted-background_23-2148416030.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+

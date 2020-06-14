@@ -1,0 +1,42 @@
+.ProfileInfo {
+    display: flex;
+    flex-direction: row;
+    border-style: solid;
+    border-width: thin;
+    border-color: lightgray;
+    background-color: whitesmoke;
+    padding-top: 30px;
+}
+
+.BasicInfo {
+    padding-top: 15px;
+    border-style: solid;
+    border-width: thin;
+    border-color: lightgray;
+    width: 50%;
+    background-color: white;
+}
+
+.contact {
+    padding-top: 15px;
+    border-style: solid;
+    border-width: thin;
+    border-color: lightgray;
+    width: 50%;
+}
+
+.ProfileImg {
+    height: 100px;
+    border-radius: 20px;
+    border-style: solid;
+    border-color: linear-gradient(90deg, rgba(11,181,237,1) 34%, rgba(0,33,255,1) 100%);
+}
+
+.ProfileImg:hover {
+    color: skyblue;
+    opacity: 1;
+}
+
+body {
+    background-color: white;
+}
