@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { useRouteMatch } from 'react-router-dom';
 import { useSelector } from 'react-redux'
 import { apiURL } from '../../util/apiURL';
 import axios from 'axios'
@@ -6,21 +7,21 @@ import DummyPhoto from '../../css/profileImages/dummy-profile-pic.png'
 import '../../css/Profile.css'
 
 const Profile = () => {
-    const user = useSelector(state => state.user)
+    const match = useRouteMatch('/profile/:id')
+    // console.log( id )
+    // const user = useSelector(state => state.user)
     const [ username, setUsername ] = useState("")
     const [ currentUser, setCurrentUser ]= useState("")
     const [ bio, setBio ] = useState("")
     const [ email, setEmail ] = useState("")
     const [ profilePicture, setProfilePicture ] = useState(null)
-
-    
-
+    // const [ userId, setUserId ] = useState(null)
     const API = apiURL()
 
     useEffect(() => {
-        if (user) {
-            const fetchUserInfo = async () => {
-                let res = await axios.get(`${API}/users/${user.id}`)
+            // debugger
+            const fetchUserInfo = async (id) => {
+                let res = await axios.get(`${API}/users/${id}`)
                 let { bio, email, username, profile_picture } = res.data.body.singleUser
                 setUsername(username)
                 setBio(bio)
@@ -31,9 +32,7 @@ const Profile = () => {
                     setProfilePicture(profile_picture)
                 }
             }
-            fetchUserInfo()
-            
-        }
+            fetchUserInfo(match.params.id)  
     }, [currentUser])
     
     return (

@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux'
+import { useRouteMatch } from 'react-router-dom'
 import axios from 'axios';
 import { apiURL } from '../../util/apiURL'
 import '../../css/ProfilePosts.css'
 import DummyPhoto from '../../css/profileImages/dummy-profile-pic.png'
 
 const Posts = () => {
-    const user = useSelector(state => state.user)
-    const userPosts = useSelector(state => state.posts.filter(post => post.owner_id === user.id))
+    const match = useRouteMatch()
+    debugger
+    // console.log(id)
+    // const user = useSelector(state => state.user)
+    const userPosts = useSelector(state => state.posts.filter(post => post.owner_id === match.params.id))
     console.log(userPosts)
     const API = apiURL()
     const [ posts, setPosts ] = useState([])
@@ -57,17 +61,17 @@ const Posts = () => {
         )
     })
     useEffect(() => {
-        const fetchUserPosts = async () => {
+        const fetchUserPosts = async (id) => {
             try {
-                let { id } = user
-                let res = await axios.get(`${API}/posts/ownerID/${id}`)  
+                let res = await axios.get(`${API}/posts/ownerID/${id}`) 
+                debugger
                 let { posts } = res.data.body  
                 setPosts(posts)    
             } catch (error) {
                 console.log("Code Broke", error)
             }
         }
-        fetchUserPosts()
+        fetchUserPosts(match.params.id)
     }, [])
     return(
         <div className={"feedPosts"}>

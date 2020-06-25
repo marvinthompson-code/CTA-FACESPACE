@@ -51,15 +51,15 @@ function App() {
       <SignUp/>
     </AuthRoute>
 
-    <ProtectedRoute path={"/profile"}>
+    <ProtectedRoute exact path={"/profile/:id"}>
       <Profile/>
       <PostForm/>
       <Posts/>
     </ProtectedRoute>
 
-    <ProtectedRoute exact path={"/user/profile/:name"}>
+    {/* <ProtectedRoute exact path={"/profile/:id"}>
       <ProfileResults/>
-    </ProtectedRoute>
+    </ProtectedRoute> */}
 
     </Switch>
     </div>

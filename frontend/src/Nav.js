@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink, useHistory, Redirect, Route } from 'react-router-dom'
+import { NavLink, useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { logout } from './features/user/userSlice'
 import LogoWhite from './css/logos/LogoMakr_4YcV9W.png'
@@ -9,13 +9,14 @@ const Nav = () => {
     const dispatch = useDispatch()
     const history = useHistory()
     const user = useSelector(state => state.user)
+
     const displayButtons = () => {
         if (user) {
             return(
                 <>
                 <button onClick={handleClick}>Log Out</button>
                 <NavLink to={"/feed"} activeClassName={"navItem"}>Feed</NavLink>
-                <NavLink to={"/profile"} activeClassName={"navItem"}>Profile</NavLink>
+                <NavLink exact to={`/profile/${user.id}`} activeClassName={"navItem"}>Profile</NavLink>
                 </>
             )
         } else {
