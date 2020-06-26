@@ -1,6 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { useSelector } from 'react-redux'
 import { apiURL } from '../../util/apiURL'
+import { setLoading, selectLoading } from '../loading/loadingSlice'
+
 import axios from 'axios'
 export const postsSlice = createSlice({
     name: "posts",
@@ -32,19 +34,22 @@ export const createNewPost = (post) => async (dispatch, getState) => {
 }
 
 export const deletePostAsync = (id) => async (dispatch) => {
+    // const loading = useSelector(selectLoading)
         await axios({
         method: "delete",
         url: `${apiURL()}/posts/${id}`
     })
     dispatch(deletePost(id))
+    dispatch(setLoading(true))
+    dispatch(setLoading(false))
 }
 
 export const sharePostAsync = (post) => async (dispatch, getState) => {
-    
+
 }
 
 export const selectPosts = (state) => state.posts
 
 
-export const { addPost, recieveAllPosts } = postsSlice.actions;
+export const { addPost, recieveAllPosts, deletePost } = postsSlice.actions;
 export default postsSlice.reducer;

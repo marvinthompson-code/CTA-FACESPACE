@@ -5,7 +5,7 @@ import DummyPhoto from '../../css/profileImages/dummy-profile-pic.png';
 import Heart from '../../css/profileImages/Instagram-Heart-Free-PNG-Image.png';
 import Share from '../../css/profileImages/224-2244409_forward-arrow-icon-share-arrow-png.png';
 import { useSelector, useDispatch  } from 'react-redux';
-import { createNewPost } from '../posts/postsSlice'
+import { createNewPost, deletePostAsync } from '../posts/postsSlice'
 import { useHistory, useParams } from 'react-router-dom'
 
 const Post = ({ post }) => {
@@ -18,13 +18,13 @@ const Post = ({ post }) => {
 
     const displayPage = (id) => history.push(`/profile/${id}`)
 
-    const handleDelete = async (id) => {
-        try {
-            await axios.delete(`${API}/posts/${id}`)
-        } catch (error) {
-            console.log(error)
-        }
-    }
+    // const handleDelete = async (id) => {
+    //     try {
+    //         await axios.delete(`${API}/posts/${id}`)
+    //     } catch (error) {
+    //         console.log(error)
+    //     }
+    // }
 
     const handleShare = async (id) => {
         try {
@@ -76,7 +76,7 @@ const Post = ({ post }) => {
             <img className={"PostProfilePic"} src={profilePicture} alt={"Profile Picture"} value={post.owner_id}/>
             <br/>
             <h3 onClick={() => displayPage(post.owner_id)} className={"username"}>{username}</h3>
-            <h5 onClick={() => handleDelete(post.id)} className={"delete"}>x</h5>
+            <h5 onClick={() => dispatch(deletePostAsync(post.id))} className={"delete"}>x</h5>
             </div>
             <h2 className={"text"}>{post.content}</h2>
             <div className={"options"}>
