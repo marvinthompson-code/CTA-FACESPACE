@@ -10,13 +10,14 @@ export const postsSlice = createSlice({
     reducers: {
         addPost: (state, action) => { state.unshift(action.payload) },
         recieveAllPosts:  (state, action) => action.payload,
-        sharePost: (state, action) => action.payload,
+        sharePost: (state, action) => {state.unshift(action.payload)},
         deletePost: (state, action) => {
             state.filter(post => {
                 return post.id !== action.payload
             })
         } 
     }
+    // prepare?? for the share action
 })
 
 export const createNewPost = (post) => async (dispatch, getState) => {
@@ -30,11 +31,11 @@ export const createNewPost = (post) => async (dispatch, getState) => {
         }
     })
     let { newPost } = res.data.body
+    debugger
     dispatch(addPost(newPost))
 }
 
 export const deletePostAsync = (id) => async (dispatch) => {
-    // const loading = useSelector(selectLoading)
         await axios({
         method: "delete",
         url: `${apiURL()}/posts/${id}`
@@ -45,7 +46,24 @@ export const deletePostAsync = (id) => async (dispatch) => {
 }
 
 export const sharePostAsync = (post) => async (dispatch, getState) => {
+    const state = getState()
+    let res = await axios({
+        method: "post",
+        url: `${apiURL}/posts/`,
+        data: post,
+        headers: {
+            "AuthToken": state.token
+        }
+    })
+    let { newPost } = res.data.body 
 
+    let sharedPost = {
+
+    }
+
+// dispatch the addPost action with `user shared user's post: post ?
+    dispatch(setLoading(true))
+    dispatch(setLoading(false))
 }
 
 export const selectPosts = (state) => state.posts
