@@ -1,11 +1,43 @@
 
 .feedPosts {
     border-style: solid;
+    border-width: thin;
+    border-radius: 10px;
     width: 60%;
     margin: auto;  
     background: rgb(50,41,154);
     background: linear-gradient(0deg, rgba(50,41,154,0.8869922969187675) 13%, rgba(106,116,135,1) 100%);
+    overflow: scroll;
+    height: 600px;
 }
+
+
+
+
+@keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+    }
+    
+    @-moz-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+    }
+    
+    @-webkit-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+    }
+    
+    @-o-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+    }
+    
+    @-ms-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+    }
 
 .Post {
     border-style: solid;
@@ -14,6 +46,19 @@
     margin: auto;
     margin-bottom: 10px;
     background-color: whitesmoke;
+    animation: fadeIn ease 3s;
+    -webkit-animation: fadeIn ease 3s;
+    -moz-animation: fadeIn ease 3s;
+    -o-animation: fadeIn ease 3s;
+    -ms-animation: fadeIn ease 3s;
+    transition: 2s;
+
+}
+
+li:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    opacity: 1;
+    width: 85%;
 }
 
 .delete {
@@ -58,6 +103,7 @@
     flex-direction: row;
     border-top: dashed;
     border-width: thin;
+    background-color: lightgrey;
 }
 
 .share {

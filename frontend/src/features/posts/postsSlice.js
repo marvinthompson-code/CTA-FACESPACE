@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { useSelector } from 'react-redux'
 import { apiURL } from '../../util/apiURL'
-import { setLoading, selectLoading } from '../loading/loadingSlice'
+import { setLoading } from '../loading/loadingSlice'
 
 import axios from 'axios'
 export const postsSlice = createSlice({
@@ -56,15 +56,14 @@ export const sharePostAsync = (post) => async (dispatch, getState) => {
         }
     })
     let { newPost } = res.data.body 
-
     let sharedPost = {
-
+        
     }
-
 // dispatch the addPost action with `user shared user's post: post ?
     dispatch(setLoading(true))
     dispatch(setLoading(false))
 }
+
 
 export const selectPosts = (state) => state.posts
 
