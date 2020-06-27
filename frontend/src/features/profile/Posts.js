@@ -51,7 +51,7 @@ const Posts = () => {
             className={"Post"}>
             <div className={"userPostInfo"}>
             <br/>
-            <img className={"PostProfilePic"} src={profilePicture} alt={"Profile Picture"} value={post.owner_id}/>
+            <img className={"PostProfilePic"} src={profilePicture} alt={"Profile"} value={post.owner_id}/>
             <br/>
             <h3>{username}</h3>
             <h5 onClick={() => handleDelete(post.id)} className={"delete"} id={post.id}>x</h5>

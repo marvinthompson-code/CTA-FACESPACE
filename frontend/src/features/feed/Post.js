@@ -5,8 +5,9 @@ import DummyPhoto from '../../css/profileImages/dummy-profile-pic.png';
 import Heart from '../../css/profileImages/Instagram-Heart-Free-PNG-Image.png';
 import Share from '../../css/profileImages/224-2244409_forward-arrow-icon-share-arrow-png.png';
 import { useSelector, useDispatch  } from 'react-redux';
-import { createNewPost, deletePostAsync } from '../posts/postsSlice'
+import { createNewPost, deletePostAsync, sharePostAsync } from '../posts/postsSlice'
 import { useHistory, useParams } from 'react-router-dom'
+import { setLoading } from '../loading/loadingSlice';
 
 const Post = ({ post }) => {
     const [ username, setUsername ] = useState("")
@@ -30,7 +31,7 @@ const Post = ({ post }) => {
         try {
             let post = await axios.get(`${API}/posts/${id}`)
             debugger
-            dispatch(createNewPost(post))
+            dispatch(createNewPost(post.data.body.post))
         } catch (error) {
             console.log("Error", error)
         }
@@ -82,7 +83,7 @@ const Post = ({ post }) => {
             <div className={"options"}>
                 <img src={Heart} alt={"heart"} className={"heart"} value={post.id} onClick={() => handleLike(post.id)}/>
                 {/* <h4 className={"likes"}>{likes}</h4> */}
-                <img src={Share} alt={"share"} className={"share"} onClick={() => handleShare(post.id)}/>
+                <img src={Share} alt={"share"} className={"share"} onClick={() => dispatch(handleShare(post.id))}/>
             </div>
             </li>
         )

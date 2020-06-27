@@ -10,7 +10,6 @@ import Profile from './features/profile/Profile'
 import Feed from './features/feed/Feed'
 import PostForm from './features/posts/PostForm'
 import Posts from './features/profile/Posts'
-import ProfileResults from './features/results/ProfileResults'
 import { AuthRoute, ProtectedRoute } from './util/routesUtil'
 import { selectLoading } from './features/loading/loadingSlice';
 import { useSelector, useDispatch } from 'react-redux'
