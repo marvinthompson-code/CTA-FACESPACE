@@ -9,14 +9,13 @@ export const postsSlice = createSlice({
     reducers: {
         addPost: (state, action) => { state.unshift(action.payload) },
         recieveAllPosts:  (state, action) => action.payload,
-        sharePost: (state, action) => {state.unshift(action.payload)},
+        sharePost: (state, action) => { state.unshift(action.payload) },
         deletePost: (state, action) => {
             state.filter(post => {
                 return post.id !== action.payload
             })
         } 
     }
-    // prepare?? for the share action
 })
 
 export const createNewPost = (post) => async (dispatch, getState) => {

@@ -5,9 +5,8 @@ import DummyPhoto from '../../css/profileImages/dummy-profile-pic.png';
 import Heart from '../../css/profileImages/Instagram-Heart-Free-PNG-Image.png';
 import Share from '../../css/profileImages/224-2244409_forward-arrow-icon-share-arrow-png.png';
 import { useSelector, useDispatch  } from 'react-redux';
-import { createNewPost, deletePostAsync, sharePostAsync } from '../posts/postsSlice'
-import { useHistory, useParams } from 'react-router-dom'
-import { setLoading } from '../loading/loadingSlice';
+import { createNewPost, deletePostAsync } from '../posts/postsSlice'
+import { useHistory } from 'react-router-dom'
 
 const Post = ({ post }) => {
     const [ username, setUsername ] = useState("")
@@ -18,14 +17,6 @@ const Post = ({ post }) => {
     const history = useHistory()
 
     const displayPage = (id) => history.push(`/profile/${id}`)
-
-    // const handleDelete = async (id) => {
-    //     try {
-    //         await axios.delete(`${API}/posts/${id}`)
-    //     } catch (error) {
-    //         console.log(error)
-    //     }
-    // }
 
     const handleShare = async (id) => {
         try {
