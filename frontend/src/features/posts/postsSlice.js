@@ -19,19 +19,25 @@ export const postsSlice = createSlice({
 })
 
 export const createNewPost = (post) => async (dispatch, getState) => {
-    const state = getState()
-    let res = await axios({
-        method: "post",
-        url: `${apiURL()}/posts/`,
-        data: post,
-        headers: {
-            "AuthToken": state.token
-        }
-    })
-    let { newPost } = res.data.body
-    debugger
-    dispatch(addPost(newPost))
+    try {
+        const state = getState()
+        let res = await axios({
+            method: "post",
+            url: `${apiURL()}/posts/`,
+            data: post,
+            headers: {
+                "AuthToken": state.token
+            }
+        })
+        let { newPost } = res.data.body
+        debugger
+        dispatch(addPost(newPost))
+    } catch (error) {
+        
+    }
 }
+
+
 
 export const deletePostAsync = (id) => async (dispatch) => {
         await axios({

@@ -1,3 +1,11 @@
+
+@font-face {
+    src: url('../fonts/Raleway-Light.ttf');
+    font-family: railwayLight;
+}
+
+
+
 .ProfileInfo {
     display: flex;
     flex-direction: row;
@@ -5,7 +13,7 @@
     border-width: thin;
     border-color: lightgray;
     background-color: whitesmoke;
-    
+    font-family: railwayLight;
 }
 
 .BasicInfo {

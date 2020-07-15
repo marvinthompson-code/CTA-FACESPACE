@@ -10,6 +10,20 @@
 
 .submit {
     height: 50px;
+    transition: 2s;
 }
 
+.upload {
+    height: 50px;
+    transition: 2s;
+}
+
+.upload:hover {
+    background-color: darkblue;
+}
+
+.submit:hover {
+    background-color: darkblue;
+    color: skyblue;
+}
 

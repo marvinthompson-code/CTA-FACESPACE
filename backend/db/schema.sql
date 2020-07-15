@@ -1,7 +1,7 @@
--- DROP DATABASE IF EXISTS face_space_database;
--- CREATE DATABASE face_space_database; 
+DROP DATABASE IF EXISTS face_space_database;
+CREATE DATABASE face_space_database; 
 
--- \c face_space_database;
+\c face_space_database;
 
 DROP TABLE IF EXISTS users; 
 DROP TABLE IF EXISTS posts;
@@ -22,8 +22,9 @@ CREATE TABLE posts (
     id SERIAL PRIMARY KEY,
     post_image_url VARCHAR,
     owner_id VARCHAR REFERENCES users(id) ON DELETE CASCADE,
+    original_author VARCHAR REFERENCES users(id) ON DELETE SET NULL,
     content VARCHAR,
-    time_stamp TIMESTAMP
+    time_stamp TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
 

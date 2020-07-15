@@ -4,40 +4,22 @@ import { apiURL } from '../../util/apiURL';
 import DummyPhoto from '../../css/profileImages/dummy-profile-pic.png';
 import Heart from '../../css/profileImages/Instagram-Heart-Free-PNG-Image.png';
 import Share from '../../css/profileImages/224-2244409_forward-arrow-icon-share-arrow-png.png';
-
 import { useSelector, useDispatch  } from 'react-redux';
 import { createNewPost, deletePostAsync } from '../posts/postsSlice'
 import { useHistory } from 'react-router-dom'
 import { selectLoading, setLoading } from '../loading/loadingSlice';
 // import Likes from '../likes/Likes'
 
-const Post = ({ post }) => {
+const SharedPost = ({ post }) => {
     const [ username, setUsername ] = useState("")
     const [ profilePicture, setProfilePicture ] = useState(null)
-    const user = useSelector(state => state.user)
     const API = apiURL()
     const dispatch = useDispatch()
     const history = useHistory()
 
     const displayPage = (id) => history.push(`/profile/${id}`)
 
-    const handleShare = () => {
-        try {
-            // let post = await axios.get(`${API}/posts/${id}`)
-            // debugger
-            // dispatch(setLoading(true))
-            // dispatch(createNewPost(post.data.body.post))
-            // dispatch(setLoading(false))
-            const newPost = {
-                ...post
-            }
-            newPost.owner_id =  user.id
-            dispatch(createNewPost(newPost))
-
-        } catch (error) {
-            console.log("Error", error)
-        }
-    }
+  
 
     const fetchUserInfo = async(id) => {
         try {
@@ -72,6 +54,9 @@ const Post = ({ post }) => {
     }, [])
      // ternary to check if the post is yours or someone else's, display in a nested div if a shared post
         return (
+            <div>
+            <h3>{username} shared a post!</h3>
+            <div className={"sharedPostDiv"}>
             <li 
             id={post.id} 
             className={"Post"}>
@@ -91,12 +76,12 @@ const Post = ({ post }) => {
                 onClick={
                     () => handleLike(post.id)
                 } 
-                    />
-                {/* <h4 className={"likes"}>{likes}</h4> */}
-                <img src={Share} alt={"share"} className={"share"} onClick={handleShare}/>
+                />
             </div>
-            </li>                                                             
+            </li>
+                </div>                                                                 
+                </div>
         )
 }
 
-export default Post;
+export default SharedPost;

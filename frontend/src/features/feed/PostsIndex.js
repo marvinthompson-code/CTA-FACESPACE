@@ -5,6 +5,7 @@ import { apiURL } from '../../util/apiURL'
 import axios from 'axios';
 import '../../css/Feed.css'
 import Post from './Post'
+import SharedPost from './SharedPost'
 
 
 const PostsIndex = () => {
@@ -13,12 +14,19 @@ const PostsIndex = () => {
     const posts = useSelector(selectPosts)
 
     let feedPosts = posts.map((post) => {
-        return <Post post={post} key={post.id}/>
+        if (post.owner_id === post.original_author) {
+            debugger
+            return <Post post={post} key={post.id}/>
+        } 
+        if (post.owner_id !== post.original_author) {
+            return <SharedPost post={post} key={post.id}/>
+        }
     })
 
     useEffect(() => {
             const fetchPosts = async () => {   
                 let res = await axios.get(`${API}/posts/`)
+                debugger
                 dispatch(recieveAllPosts(res.data.body.posts))  
             }
         fetchPosts()
@@ -26,7 +34,7 @@ const PostsIndex = () => {
    
     return (
         <div className={"feedPosts"}>
-            <h1>Latest Posts</h1>
+            <h1 className={"feedTitle"}>Latest Posts</h1>
             <ul className={"feed"}>
                 {feedPosts}
             </ul>
