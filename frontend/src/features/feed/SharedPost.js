@@ -19,8 +19,6 @@ const SharedPost = ({ post }) => {
 
     const displayPage = (id) => history.push(`/profile/${id}`)
 
-  
-
     const fetchUserInfo = async(id) => {
         try {
             let res = await axios.get(`${API}/users/${id}`)

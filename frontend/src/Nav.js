@@ -14,9 +14,9 @@ const Nav = () => {
         if (user) {
             return(
                 <>
-                <button onClick={handleClick}>Log Out</button>
                 <NavLink to={"/feed"} activeClassName={"navItem"}>Feed</NavLink>
                 <NavLink exact to={`/profile/${user.id}`} activeClassName={"navItem"}>Profile</NavLink>
+                <button onClick={handleClick}>Log Out</button>
                 </>
             )
         } else {

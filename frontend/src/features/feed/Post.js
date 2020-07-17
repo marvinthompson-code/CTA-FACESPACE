@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react' ;
 import axios from 'axios';
 import { apiURL } from '../../util/apiURL';
+import { toggleModalState } from '../modal/modalSlice'
 import DummyPhoto from '../../css/profileImages/dummy-profile-pic.png';
 import Heart from '../../css/profileImages/Instagram-Heart-Free-PNG-Image.png';
 import Share from '../../css/profileImages/224-2244409_forward-arrow-icon-share-arrow-png.png';
-
+import SharedPost from './SharedPost'
 import { useSelector, useDispatch  } from 'react-redux';
 import { createNewPost, deletePostAsync } from '../posts/postsSlice'
 import { useHistory } from 'react-router-dom'
-import { selectLoading, setLoading } from '../loading/loadingSlice';
 // import Likes from '../likes/Likes'
 
 const Post = ({ post }) => {
@@ -23,11 +23,6 @@ const Post = ({ post }) => {
 
     const handleShare = () => {
         try {
-            // let post = await axios.get(`${API}/posts/${id}`)
-            // debugger
-            // dispatch(setLoading(true))
-            // dispatch(createNewPost(post.data.body.post))
-            // dispatch(setLoading(false))
             const newPost = {
                 ...post
             }
@@ -74,7 +69,9 @@ const Post = ({ post }) => {
         return (
             <li 
             id={post.id} 
-            className={"Post"}>
+            className={"Post"}
+            onClick={() => dispatch(toggleModalState())}
+            >
             <div className={"userPostInfo"}>
             <br/>
             <img className={"PostProfilePic"} src={profilePicture} alt={"Profile Picture"} value={post.owner_id}/>

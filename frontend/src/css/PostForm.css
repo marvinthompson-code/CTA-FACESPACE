@@ -6,6 +6,7 @@
     width: 35%;
     height: 50px;
     font-size: large;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .submit {
@@ -19,11 +20,11 @@
 }
 
 .upload:hover {
-    background-color: darkblue;
+    background-color: rgb(255,111,89);
 }
 
 .submit:hover {
-    background-color: darkblue;
-    color: skyblue;
+    background-color: rgb(255,111,89);
+    color: white;
 }
 

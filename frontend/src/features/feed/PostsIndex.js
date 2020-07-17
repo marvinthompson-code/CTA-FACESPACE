@@ -14,19 +14,12 @@ const PostsIndex = () => {
     const posts = useSelector(selectPosts)
 
     let feedPosts = posts.map((post) => {
-        if (post.owner_id === post.original_author) {
-            debugger
             return <Post post={post} key={post.id}/>
-        } 
-        if (post.owner_id !== post.original_author) {
-            return <SharedPost post={post} key={post.id}/>
-        }
     })
 
     useEffect(() => {
             const fetchPosts = async () => {   
                 let res = await axios.get(`${API}/posts/`)
-                debugger
                 dispatch(recieveAllPosts(res.data.body.posts))  
             }
         fetchPosts()

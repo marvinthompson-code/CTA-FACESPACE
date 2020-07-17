@@ -1,17 +1,27 @@
+@font-face {
+    src: url('../fonts/Raleway-Light.ttf');
+    font-family: railwayLight;
+}
+
+a {
+    text-decoration: none;
+}
+
 .nav {
     display: flex;
     justify-content: space-evenly;
     position: relative;
     width: 100%;
     font-size: x-large;
+    font-family: railwayLight;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    background: rgb(11,181,237);
-    background: linear-gradient(90deg, rgba(11,181,237,1) 34%, rgba(0,33,255,1) 100%);
+    background: rgb(255,111,89);
+    background: radial-gradient(circle, rgba(255,111,89,1) 0%, rgba(219,80,74,1) 100%);
 }
 
 button:hover {
     background-color: white;
-    color: skyblue;
+    color: rgb(255,111,89);
 }
 
 button {

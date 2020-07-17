@@ -9,10 +9,7 @@
 .ProfileInfo {
     display: flex;
     flex-direction: row;
-    border-style: solid;
-    border-width: thin;
-    border-color: lightgray;
-    background-color: whitesmoke;
+    background-color: #db504a;
     font-family: railwayLight;
 }
 
@@ -22,7 +19,7 @@
     border-width: thin;
     border-color: lightgray;
     width: 50%;
-    background-color: white;
+    background-color: #43aa8b;
 }
 
 .contact {

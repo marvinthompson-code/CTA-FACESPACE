@@ -10,8 +10,8 @@ const Posts = () => {
     const match = useRouteMatch()
     debugger
     // console.log(id)
-    // const user = useSelector(state => state.user)
-    const userPosts = useSelector(state => state.posts.filter(post => post.owner_id === match.params.id))
+    const user = useSelector(state => state.user)
+    const userPosts = useSelector(state => state.posts.filter(post => post.owner_id === user.id))
     console.log(userPosts)
     const API = apiURL()
     const [ posts, setPosts ] = useState([])
@@ -71,7 +71,7 @@ const Posts = () => {
                 console.log("Code Broke", error)
             }
         }
-        fetchUserPosts(match.params.id)
+        fetchUserPosts(user.id)
     }, [])
     return(
         <div className={"feedPosts"}>
