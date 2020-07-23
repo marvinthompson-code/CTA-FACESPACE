@@ -28,7 +28,7 @@ const ProfileResults = () => {
                 } else {
                     setProfilePicture(profile_picture)
                 }
-                debugger
+        
 
             } catch (error) {
                 console.log(error)

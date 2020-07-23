@@ -1,0 +1,41 @@
+@font-face {
+    src: url('../fonts/Raleway-Light.ttf');
+    font-family: railwayLight;
+}
+
+.shareContainer {
+    margin: auto;
+    padding-bottom: 10px;
+    border-radius: 10px;
+    background-color: #32533D;
+    border-style: solid;
+    border-width: thin;
+    transition: 2s;
+}
+
+.shareContainer:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#shareTitle {
+    font-family: railwayLight;
+    text-align: left;
+    margin-left: 80px;
+    font-size: large;
+    color: whitesmoke;
+}
+
+#shareTitle:hover {
+    color:  rgba(255,111,89,1);
+}
+
+#shareSymbol {
+    height: 25px;
+    width: 35px;
+    margin-right: 630px;
+}
+
+.timeStamp {
+    font-size: small;
+    padding-left: 10px;
+}

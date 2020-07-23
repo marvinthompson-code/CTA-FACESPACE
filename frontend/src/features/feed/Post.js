@@ -28,7 +28,7 @@ const Post = ({ post }) => {
             }
             newPost.owner_id =  user.id
             dispatch(createNewPost(newPost))
-
+            
         } catch (error) {
             console.log("Error", error)
         }
@@ -67,6 +67,7 @@ const Post = ({ post }) => {
     }, [])
      // ternary to check if the post is yours or someone else's, display in a nested div if a shared post
         return (
+            //
             <li 
             id={post.id} 
             className={"Post"}
@@ -79,6 +80,7 @@ const Post = ({ post }) => {
             <h3 onClick={() => displayPage(post.owner_id)} className={"username"}>{username}</h3>
             <h5 onClick={() => dispatch(deletePostAsync(post.id))} className={"delete"}>x</h5>
             </div>
+            <img src={post.post_image_url} alt={"facespace post"} className={"faceSpaceImg"}/>
             <h2 className={"text"}>{post.content}</h2>
             <div className={"options"}>
                 <img src={Heart} 
@@ -91,6 +93,7 @@ const Post = ({ post }) => {
                     />
                 {/* <h4 className={"likes"}>{likes}</h4> */}
                 <img src={Share} alt={"share"} className={"share"} onClick={handleShare}/>
+                <h3 className={"timeStamp"}>{post.time_stamp.slice(0, 10)}</h3>
             </div>
             </li>                                                             
         )

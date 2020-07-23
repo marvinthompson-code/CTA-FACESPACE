@@ -30,7 +30,7 @@ export const createNewPost = (post) => async (dispatch, getState) => {
             }
         })
         let { newPost } = res.data.body
-        debugger
+        
         dispatch(addPost(newPost))
     } catch (error) {
         
@@ -54,9 +54,9 @@ export const deletePostAsync = (id) => async (dispatch) => {
 //         method: "get",
 //         url: `${apiURL}/posts/${id}`
 //     })
-//     debugger
+//     
 //     // let { newPost } = res.data.body 
-//     // debugger
+//     // 
 //     // let sharedPost = {
 
 //     // }

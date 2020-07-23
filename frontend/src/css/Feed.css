@@ -11,7 +11,8 @@
     /* border-style: solid;
     border-width: thick; */
     border-radius: 10px;
-    width: 60%;
+    padding-right: 40px;
+    width: 90%;
     margin: auto; 
     background-color: #72a276;
     overflow: scroll;
@@ -52,7 +53,8 @@
 .Post {
     border-style: solid;
     border-radius: 10px;
-    width: 80%;
+    width: 50%;
+    position: relative;
     margin: auto;
     margin-bottom: 10px;
     background-color: whitesmoke;
@@ -143,4 +145,8 @@ background: radial-gradient(circle, rgba(255,111,89,1) 0%, rgba(219,80,74,1) 100
 
 .username:hover {
     color: blue;
+}
+
+.username {
+    padding-left: 5px;
 }

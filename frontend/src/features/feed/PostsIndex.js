@@ -8,13 +8,18 @@ import Post from './Post'
 import SharedPost from './SharedPost'
 
 
+
 const PostsIndex = () => {
     const dispatch = useDispatch()
     const API = apiURL()
     const posts = useSelector(selectPosts)
 
     let feedPosts = posts.map((post) => {
+        if (post.original_author !== post.owner_id) {
+            return <SharedPost post={post} key={post.id}/>
+        } else {
             return <Post post={post} key={post.id}/>
+        }
     })
 
     useEffect(() => {

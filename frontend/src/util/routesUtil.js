@@ -17,6 +17,7 @@
     const user = useSelector(state => state.user)
     return (
          <Route 
+         {...rest}
             render={({location}) => {
                 return user ? children : <Redirect to="/login"/>
             }}

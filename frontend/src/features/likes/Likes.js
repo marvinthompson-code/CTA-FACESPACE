@@ -12,9 +12,9 @@ const Likes = ({ postId, likerId }) => {
     const handleClick = async (e) => {
         e.preventDefault()
         await axios.post(`${API}/likes/post/${postId}/${likerId}`)
-        debugger
+        
         await axios.get(`${API}/likes/post/${postId}`)
-        debugger
+        
     }
     
 

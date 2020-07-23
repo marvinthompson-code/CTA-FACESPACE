@@ -2,7 +2,7 @@ const db = require('../db/index')
 
 const getAllPosts = async (req, res, next) => {
     try {
-        let posts = await db.any("SELECT posts.id, owner_id, content, post_image_url, time_stamp, username, full_name FROM posts INNER JOIN users ON posts.owner_id = users.id ORDER BY posts.id DESC")
+        let posts = await db.any("SELECT posts.id, owner_id, content, post_image_url, time_stamp, username, full_name, original_author FROM posts INNER JOIN users ON posts.owner_id = users.id ORDER BY posts.id DESC")
         res.status(200).json({
             status: "Success",
             message: "Retrieved all Posts",

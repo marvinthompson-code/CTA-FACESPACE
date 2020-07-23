@@ -3,15 +3,16 @@ import axios from 'axios';
 import { apiURL } from '../../util/apiURL';
 import DummyPhoto from '../../css/profileImages/dummy-profile-pic.png';
 import Heart from '../../css/profileImages/Instagram-Heart-Free-PNG-Image.png';
-import Share from '../../css/profileImages/224-2244409_forward-arrow-icon-share-arrow-png.png';
-import { useSelector, useDispatch  } from 'react-redux';
-import { createNewPost, deletePostAsync } from '../posts/postsSlice'
+import { useDispatch  } from 'react-redux';
+import { deletePostAsync } from '../posts/postsSlice'
 import { useHistory } from 'react-router-dom'
-import { selectLoading, setLoading } from '../loading/loadingSlice';
+import ShareSymbol from '../../css/profileImages/LogoMakr_0FkyHJ.png'
+import '../../css/SharePost.css'
 // import Likes from '../likes/Likes'
 
 const SharedPost = ({ post }) => {
     const [ username, setUsername ] = useState("")
+    const [ original, setOriginal ] = useState("")
     const [ profilePicture, setProfilePicture ] = useState(null)
     const API = apiURL()
     const dispatch = useDispatch()
@@ -29,6 +30,17 @@ const SharedPost = ({ post }) => {
             } else {
                 setProfilePicture(profile_picture)      
             }
+            setOriginal(post.original_author)
+        } catch (error) {
+            console.log("Error", error)
+        }
+    }
+
+    const fetchShareInfo = async(id) => {
+        try {
+            let res = await axios.get(`${API}/users/${id}`)
+            let { username } = res.data.body.singleUser
+            setOriginal(username)
         } catch (error) {
             console.log("Error", error)
         }
@@ -37,10 +49,6 @@ const SharedPost = ({ post }) => {
 
     const handleLike = async (postId) => {
         try {
-            
-            // const likesRes = await axios.get(`${API}/likes/post/${postId}`);
-            // const res = await axios.post(`${API}/likes/post/${postId}/${id}`)
-            // let arr = likesRes.data.body.likes.length
         } catch (error) {
             console.log(error)
             
@@ -49,11 +57,13 @@ const SharedPost = ({ post }) => {
 
     useEffect(() => {
         fetchUserInfo(post.owner_id)
+        fetchShareInfo(post.original_author)
     }, [])
      // ternary to check if the post is yours or someone else's, display in a nested div if a shared post
         return (
-            <div>
-            <h3>{username} shared a post!</h3>
+            <>
+            <div className={"shareContainer"}>
+            <h1 id={"shareTitle"}>{username} shared a post!</h1>
             <div className={"sharedPostDiv"}>
             <li 
             id={post.id} 
@@ -62,7 +72,7 @@ const SharedPost = ({ post }) => {
             <br/>
             <img className={"PostProfilePic"} src={profilePicture} alt={"Profile Picture"} value={post.owner_id}/>
             <br/>
-            <h3 onClick={() => displayPage(post.owner_id)} className={"username"}>{username}</h3>
+            <h3 onClick={() => displayPage(post.owner_id)} className={"username"}>{original}</h3>
             <h5 onClick={() => dispatch(deletePostAsync(post.id))} className={"delete"}>x</h5>
             </div>
             <h2 className={"text"}>{post.content}</h2>
@@ -75,11 +85,13 @@ const SharedPost = ({ post }) => {
                     () => handleLike(post.id)
                 } 
                 />
+                <h3 className={"timeStamp"}>{post.time_stamp.slice(0, 10)}</h3>
             </div>
             </li>
                 </div>                                                                 
                 </div>
+                </>
         )
-}
+    }
 
 export default SharedPost;
