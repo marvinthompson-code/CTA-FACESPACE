@@ -15,6 +15,13 @@
     padding-bottom: 15px;
 }
 
+.guestSubmitButton {
+    width: 15%;
+    height: 50px;
+    font-size: large;
+    padding-bottom: 15px;
+}
+
 .navItem {
     padding-left: 30px;
 }

@@ -1,7 +1,8 @@
 import React from 'react'
 import { NavLink, useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { logout } from './features/user/userSlice'
+import { logout, asyncLogout } from './features/user/userSlice'
+import { recieveToken } from './features/user/tokenSlice'
 import LogoWhite from './css/logos/LogoMakr_4YcV9W.png'
 import './css/Nav.css'
 
@@ -31,8 +32,9 @@ const Nav = () => {
 
     const handleClick = (e) => {
         e.preventDefault()
+        dispatch(asyncLogout())
+        dispatch(recieveToken(null))
         history.push("/login")
-        dispatch(logout())
     }
 
     

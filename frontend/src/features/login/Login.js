@@ -10,6 +10,8 @@ const Login = () => {
     const [ email, setEmail ] = useState("");
     const [ password, setPassword ] = useState("");
     const [ error, setError ] = useState(null)
+    const [ guestEmail, setGuestEmail ] = useState("guest@guest.com")
+    const [ guestPassword, setGuestPassword ] = useState("123456")
 
     const history = useHistory();
     const dispatch = useDispatch()
@@ -18,6 +20,17 @@ const Login = () => {
         e.preventDefault()
         try {
             let res = await login(email, password)
+            dispatch(updateUser(res.user))
+            history.push("/feed")
+        } catch (err) {
+            setError(err.message)
+        }
+    }
+
+    const handleGuestSubmit = async (e) => {
+        e.preventDefault()
+        try {
+            let res = await login(guestEmail, guestPassword)
             dispatch(updateUser(res.user))
             history.push("/feed")
         } catch (err) {
@@ -35,6 +48,9 @@ const Login = () => {
                 <input placeholder={"password"} value={password} onChange={(e) => setPassword(e.currentTarget.value)} type={"password"}/>
                 <br></br>
                 <button className={"submitButton"} type={"submit"}>Log In</button>
+            </form>
+            <form onSubmit={handleGuestSubmit}>
+                <button type={"submit"} className={"guestSubmitButton"}>Guest Log In</button>
             </form>
             <NavLink to={"/signup"} activeClassName={"navItem"}>Sign Up</NavLink>
         </div>

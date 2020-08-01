@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react' ;
 import axios from 'axios';
 import { apiURL } from '../../util/apiURL';
-import { toggleModalState } from '../modal/modalSlice'
 import DummyPhoto from '../../css/profileImages/dummy-profile-pic.png';
 import Heart from '../../css/profileImages/Instagram-Heart-Free-PNG-Image.png';
 import Share from '../../css/profileImages/224-2244409_forward-arrow-icon-share-arrow-png.png';
@@ -71,7 +70,6 @@ const Post = ({ post }) => {
             <li 
             id={post.id} 
             className={"Post"}
-            onClick={() => dispatch(toggleModalState())}
             >
             <div className={"userPostInfo"}>
             <br/>
