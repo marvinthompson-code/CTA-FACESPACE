@@ -12,24 +12,60 @@ const PostForm = () => {
     const allInputs = {imgUrl: ''}
     const [imageAsFile, setImageAsFile] = useState('')
     const [imageAsUrl, setImageAsUrl] = useState(allInputs)
+    const [toggleUploadMsg, setToggleUploadMsg] = useState(false);
     const isOpen = useSelector(state => state.modal)
     const [ input, setInput ] = useState("")
 
     const handleImageAsFile = (e) => {
         const image = e.target.files[0]
-        setImageAsFile(imageFile => (image))
+        const types = ["image/png", "image/jpeg", "image/gif", "image/jpg"];
+        if (types.every((type) => image.type !== type)) {
+          alert(`${image.type} is not a supported format`);
+        } else {
+          setImageAsFile((imageFile) => image);
+        }
     }
 
     const handleFireBaseUpload = e => {
         e.preventDefault()
         console.log('start of upload')
+        if (imageAsFile === "") {
+            alert(`Please choose a valid file before uploading`);
+        } else if (imageAsFile !== null) {
+            const uploadTask = storage
+              .ref(`/images/${imageAsFile.name}`)
+              .put(imageAsFile);
+            uploadTask.on(
+              "state_changed",
+              (snapShot) => {
+                var progress =
+                  (snapShot.bytesTransferred / snapShot.totalBytes) * 100;
+                console.log("Upload is " + progress + "% done");
+                console.log(snapShot);
+              },
+              (err) => {
+                console.log(err);
+              },
+              () => {
+                storage
+                  .ref("images")
+                  .child(imageAsFile.name)
+                  .getDownloadURL()
+                  .then((fireBaseUrl) => {
+                    setImageAsUrl(fireBaseUrl);
+                  });
+              }
+            );
+            setToggleUploadMsg(true);
+          } else {
+            setToggleUploadMsg(false);
+          }
         // async magic goes here...
-      
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        dispatch(createNewPost({content: input}))
+        dispatch(createNewPost({content: input, post_image_url: imageAsUrl}))
         setInput("")
     }
     const closeModal = () => {
@@ -47,8 +83,9 @@ const PostForm = () => {
                 isOpen={isOpen}
                 ariaHideApp={false}
             >
-                <form>
+                <form onSubmit={handleFireBaseUpload}>
                     <input type={"file"} className={"uploadInput"} onChange={handleImageAsFile}/>
+                    <button type={"submit"}>Upload</button>
                 </form>
             </Modal>
         </form>
