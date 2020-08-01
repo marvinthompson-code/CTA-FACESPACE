@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import Modal from 'react-modal'
 import { storage } from '../../firebase'
-import { useDispatch, useSelector } from 'react-redux';
-import { toggleModalState } from '../modal/modalSlice'
+import { useDispatch } from 'react-redux';
 import { createNewPost } from './postsSlice'
 import '../../css/PostForm.css'
 
@@ -13,7 +11,6 @@ const PostForm = () => {
     const [imageAsFile, setImageAsFile] = useState('')
     const [imageAsUrl, setImageAsUrl] = useState(allInputs)
     const [toggleUploadMsg, setToggleUploadMsg] = useState(false);
-    const isOpen = useSelector(state => state.modal)
     const [ input, setInput ] = useState("")
 
     const handleImageAsFile = (e) => {
@@ -60,7 +57,6 @@ const PostForm = () => {
           } else {
             setToggleUploadMsg(false);
           }
-        // async magic goes here...
     }
 
     const handleSubmit = async (e) => {
@@ -68,26 +64,15 @@ const PostForm = () => {
         dispatch(createNewPost({content: input, post_image_url: imageAsUrl}))
         setInput("")
     }
-    const closeModal = () => {
-        dispatch(toggleModalState())
-    }
+
     return(
         <>
         <form onSubmit={handleSubmit} className={"postForm"}>
             <input placeholder={"Whats on your mind?"} className={"inputForm"} value={input} onChange={(e) => setInput(e.currentTarget.value)}/>
-                <button type={"button"} className={"upload"} onClick={() => dispatch(toggleModalState())}>Upload Image</button>
+                <input type={"file"} className={"uploadInput"} onChange={handleImageAsFile}/>
+                <button type={"button"} className={"upload"} onClick={handleFireBaseUpload}>Upload Image</button>
+                    {toggleUploadMsg ? <h5 id="uploadSuccess">Upload successful!</h5> : null}
                 <button type={"submit"} className={"submit"}>Submit</button>
-            <Modal
-                isOpen={false}
-                onRequestClose={closeModal}
-                isOpen={isOpen}
-                ariaHideApp={false}
-            >
-                <form onSubmit={handleFireBaseUpload}>
-                    <input type={"file"} className={"uploadInput"} onChange={handleImageAsFile}/>
-                    <button type={"submit"}>Upload</button>
-                </form>
-            </Modal>
         </form>
         </>
     )

@@ -1,3 +1,8 @@
+@font-face {
+    src: url('../fonts/Raleway-Light.ttf');
+    font-family: railwayLight;
+}
+
 .postForm {
     padding-top: 45px;
 }
@@ -6,21 +11,33 @@
     width: 35%;
     height: 50px;
     font-size: large;
+    font-family: railwayLight;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .submit {
     height: 50px;
     transition: 2s;
+    font-family: railwayLight;
 }
 
 .upload {
     height: 50px;
     transition: 2s;
+    font-family: railwayLight;
 }
 
+.uploadInput {
+    height: 35px;
+    transition: 2s;
+    border-radius: 10px;
+    color: white;
+    background-color: rgb(255,111,89);
+    font-family: railwayLight;
+}
 .upload:hover {
     background-color: rgb(255,111,89);
+    color: white;
 }
 
 .submit:hover {
