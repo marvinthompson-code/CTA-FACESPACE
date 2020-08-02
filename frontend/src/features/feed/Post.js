@@ -4,7 +4,7 @@ import { apiURL } from '../../util/apiURL';
 import DummyPhoto from '../../css/profileImages/dummy-profile-pic.png';
 import Heart from '../../css/profileImages/Instagram-Heart-Free-PNG-Image.png';
 import Share from '../../css/profileImages/224-2244409_forward-arrow-icon-share-arrow-png.png';
-import SharedPost from './SharedPost'
+// import SharedPost from './SharedPost'
 import { useSelector, useDispatch  } from 'react-redux';
 import { createNewPost, deletePostAsync } from '../posts/postsSlice'
 import { useHistory } from 'react-router-dom'

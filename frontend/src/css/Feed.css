@@ -5,11 +5,15 @@
     font-family: railwayLight;
 }
 
+.faceSpaceImg {
+    height: 200px;
+    width: 200px;
+}
 
 
 .feedPosts {
-    /* border-style: solid;
-    border-width: thick; */
+    border-style: none;
+    border-width: thick;
     border-radius: 10px;
     padding-right: 40px;
     width: 90%;
@@ -22,6 +26,10 @@
 
 .feedTitle {
     font-family: railwayLight;
+    width: fit-content;
+    margin: auto;
+    color: white;
+    text-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);;
 }
 
 
@@ -106,9 +114,9 @@ background: radial-gradient(circle, rgba(255,111,89,1) 0%, rgba(219,80,74,1) 100
     display: flex;
     padding-right: 10px;
     flex-direction: row;
-    border-style: solid;
-    border-width: thin;
-    color: black;
+    /* border-style: solid; */
+    /* border-width: thin; */
+    /* color: black; */
     background: rgb(255,111,89);
     background: radial-gradient(circle, rgba(255,111,89,1) 0%, rgba(219,80,74,1) 100%);
     border-top-left-radius: 5px;

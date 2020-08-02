@@ -79,7 +79,6 @@ const EditProfilePicModal = () => {
 
     return (
         <Modal
-        isOpen={true}
         onRequestClose={closeModal}
         isOpen={isOpen}
         ariaHideApp={false}

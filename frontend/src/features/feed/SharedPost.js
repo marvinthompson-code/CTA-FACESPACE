@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react' ;
 import axios from 'axios';
-import Share from '../../css/profileImages/224-2244409_forward-arrow-icon-share-arrow-png.png';
 import { apiURL } from '../../util/apiURL';
 import DummyPhoto from '../../css/profileImages/dummy-profile-pic.png';
 import Heart from '../../css/profileImages/Instagram-Heart-Free-PNG-Image.png';
 import { useDispatch  } from 'react-redux';
 import { deletePostAsync } from '../posts/postsSlice'
 import { useHistory } from 'react-router-dom'
-import ShareSymbol from '../../css/profileImages/LogoMakr_0FkyHJ.png'
 import '../../css/SharePost.css'
 // import Likes from '../likes/Likes'
 
@@ -60,7 +58,6 @@ const SharedPost = ({ post }) => {
         fetchUserInfo(post.owner_id)
         fetchShareInfo(post.original_author)
     }, [])
-     // ternary to check if the post is yours or someone else's, display in a nested div if a shared post
         return (
             <>
             <div className={"shareContainer"}>
