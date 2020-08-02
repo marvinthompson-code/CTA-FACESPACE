@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react' ;
 import axios from 'axios';
+import Share from '../../css/profileImages/224-2244409_forward-arrow-icon-share-arrow-png.png';
 import { apiURL } from '../../util/apiURL';
 import DummyPhoto from '../../css/profileImages/dummy-profile-pic.png';
 import Heart from '../../css/profileImages/Instagram-Heart-Free-PNG-Image.png';
@@ -75,6 +76,7 @@ const SharedPost = ({ post }) => {
             <h3 onClick={() => displayPage(post.owner_id)} className={"username"}>{original}</h3>
             <h5 onClick={() => dispatch(deletePostAsync(post.id))} className={"delete"}>x</h5>
             </div>
+            <img src={post.post_image_url} alt={"facespace post"} className={"faceSpaceImg"}/>
             <h2 className={"text"}>{post.content}</h2>
             <div className={"options"}>
                 <img src={Heart} 

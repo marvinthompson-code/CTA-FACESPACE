@@ -8,7 +8,6 @@ import DummyPhoto from '../../css/profileImages/dummy-profile-pic.png'
 
 const Posts = () => {
     const match = useRouteMatch()
-    const params = useParams()
     // console.log(id)
     // const user = useSelector(state => state.user)
     const userPosts = useSelector(state => state.posts.filter(post => post.owner_id === match.params.id))

@@ -15,6 +15,7 @@ const PostsIndex = () => {
     const posts = useSelector(selectPosts)
 
     let feedPosts = posts.map((post) => {
+
         if (post.original_author !== post.owner_id) {
             return <SharedPost post={post} key={post.id}/>
         } else {

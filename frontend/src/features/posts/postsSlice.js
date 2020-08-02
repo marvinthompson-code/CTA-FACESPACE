@@ -20,6 +20,7 @@ export const postsSlice = createSlice({
 
 export const createNewPost = (post) => async (dispatch, getState) => {
     try {
+        debugger
         const state = getState()
         let res = await axios({
             method: "post",
@@ -30,7 +31,7 @@ export const createNewPost = (post) => async (dispatch, getState) => {
             }
         })
         let { newPost } = res.data.body
-        
+        debugger
         dispatch(addPost(newPost))
     } catch (error) {
         

@@ -61,6 +61,7 @@ const PostForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+        // for some reason its changing the post from a normal one to a shared one? I need to  see what happens during this action.
         dispatch(createNewPost({content: input, post_image_url: imageAsUrl}))
         setInput("")
     }
@@ -75,7 +76,7 @@ const PostForm = () => {
                 <button type={"submit"} className={"submit"}>Submit</button>
         </form>
         </>
-    )
+    ) 
 }
 
 export default PostForm;

@@ -1,7 +1,8 @@
 import React from 'react'
 import { NavLink, useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { logout, asyncLogout } from './features/user/userSlice'
+import { asyncLogout } from './features/user/userSlice'
+import { logout } from './util/firebaseFunctions'
 import { recieveToken } from './features/user/tokenSlice'
 import LogoWhite from './css/logos/LogoMakr_4YcV9W.png'
 import './css/Nav.css'
@@ -34,6 +35,7 @@ const Nav = () => {
         e.preventDefault()
         dispatch(asyncLogout())
         dispatch(recieveToken(null))
+        logout()
         history.push("/login")
     }
 
