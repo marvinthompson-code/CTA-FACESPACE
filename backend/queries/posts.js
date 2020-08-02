@@ -19,8 +19,9 @@ const insertNewPost = async (req, res, next) => {
     try {
         let { content, post_image_url } = req.body
         let owner_id = req.user_id
-        let newPost = await db.one("INSERT INTO posts (content, post_image_url, owner_id) VALUES ($1, $2, $3) RETURNING *",
-        [content, post_image_url, owner_id]
+        let original_author = req.user_id
+        let newPost = await db.one("INSERT INTO posts (content, post_image_url, owner_id, original_author) VALUES ($1, $2, $3, $4) RETURNING *",
+        [content, post_image_url, owner_id, original_author]
         )
         res.status(200).json({
             status: "Successful",

@@ -1,10 +1,11 @@
 \c face_space_database;
 
 INSERT INTO users
-    (id, email, username, password, full_name, profile_picture, bio)
+    (id, email, username, full_name, profile_picture, bio)
 VALUES
-    (1, 'marvinthompson@pursuit.org', 'Marvin Thompson', '123456', 'Marvin Thompson', '/Users/marvinthompson/Desktop/CTA-FACESPACE/backend/public/11703087_1093871170642354_2728768624190098749_n.jpg', 'I asked my parents before going on the internet'),
-    (2, 'test123@test.com', 'Test Account 1', '123456', 'Test Account', '/Users/marvinthompson/Desktop/CTA-FACESPACE/backend/seedPhotos/Butter_Robot_Picture.png', 'Hello');
+    (1, 'marvinthompson@pursuit.org', 'Marvin Thompson', 'Marvin Thompson', '/Users/marvinthompson/Desktop/CTA-FACESPACE/backend/public/11703087_1093871170642354_2728768624190098749_n.jpg', 'I asked my parents before going on the internet'),
+    (2, 'test123@test.com', 'Test Account 1', 'Test Account', '/Users/marvinthompson/Desktop/CTA-FACESPACE/backend/seedPhotos/Butter_Robot_Picture.png', 'Hello'),
+    ('DWHF6fNgSeTNGlbjaeT9yW3rzqz2', 'guest@guest.com', 'GuestAccount', 'Guest Account', '/Users/marvinthompson/Desktop/CTA-FACESPACE/backend/seedPhotos/Butter_Robot_Picture.png', 'This is a guest account' );
 
 INSERT INTO posts
     (content, post_image_url, owner_id, original_author )
