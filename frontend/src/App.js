@@ -4,6 +4,7 @@ import Nav from './Nav'
 import { Route, Switch, Redirect } from 'react-router-dom'
 import { updateUser } from './features/user/userSlice'
 import firebase from './firebase'
+import EditProfilePicModal from './features/profile/EditProfilePicModal'
 import Login from './features/login/Login'
 import SignUp from './features/signup/SignUp'
 import Profile from './features/profile/Profile'
@@ -54,11 +55,8 @@ function App() {
       <Profile/>
       <PostForm/>
       <Posts/>
+      <EditProfilePicModal/>
     </ProtectedRoute>
-
-    {/* <ProtectedRoute exact path={"/profile/:id"}>
-      <ProfileResults/>
-    </ProtectedRoute> */}
 
     </Switch>
     </div>

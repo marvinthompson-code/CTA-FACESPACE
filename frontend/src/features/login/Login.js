@@ -10,8 +10,8 @@ const Login = () => {
     const [ email, setEmail ] = useState("");
     const [ password, setPassword ] = useState("");
     const [ error, setError ] = useState(null)
-    const [ guestEmail, setGuestEmail ] = useState("guest@guest.com")
-    const [ guestPassword, setGuestPassword ] = useState("123456")
+    const guestEmail = "guest@guest.com"
+    const guestPassword = "123456"
 
     const history = useHistory();
     const dispatch = useDispatch()
