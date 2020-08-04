@@ -25,7 +25,11 @@ const Post = ({ post }) => {
             const newPost = {
                 ...post
             }
+            debugger
             newPost.owner_id =  user.id
+            newPost.original_author = newPost.original_author
+            debugger
+            // put in original
             dispatch(createNewPost(newPost))
             
         } catch (error) {

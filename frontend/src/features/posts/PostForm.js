@@ -5,8 +5,8 @@ import { createNewPost } from './postsSlice'
 import '../../css/PostForm.css'
 
 const PostForm = () => {
+  
     const dispatch = useDispatch()
-
     const allInputs = {imgUrl: ''}
     const [imageAsFile, setImageAsFile] = useState('')
     const [imageAsUrl, setImageAsUrl] = useState(allInputs)
@@ -61,7 +61,6 @@ const PostForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        // for some reason its changing the post from a normal one to a shared one? I need to see what happens during this action.
         dispatch(createNewPost({content: input, post_image_url: imageAsUrl}))
         setInput("")
     }

@@ -72,15 +72,17 @@ const EditProfilePicModal = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        // let res = await axios({
-        //     method: "patch",
-        //     url: `${API}/users/profile_Pic/${match.params.id}`,
-        //     data: imageAsUrl
-        // })
-        // need to fix this 
-        let res = await axios.patch(`${API}/users/profile_Pic/${match.params.id}`, {
-            profile_picture: imageAsUrl
+        let res = await axios({
+            method: "patch",
+            url: `${API}/users/profile_Pic/${match.params.id}`,
+            body: {
+              profile_picture: imageAsUrl
+            } 
         })
+        // need to fix this 
+        // let res = await axios.patch(`${API}/users/profile_Pic/${match.params.id}`, {
+        //     profile_picture: imageAsUrl
+        // })
         debugger
     }
 

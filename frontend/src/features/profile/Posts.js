@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux'
+import Heart from '../../css/profileImages/Instagram-Heart-Free-PNG-Image.png';
 import { useRouteMatch } from 'react-router-dom'
 import axios from 'axios';
 import { apiURL } from '../../util/apiURL'
@@ -8,9 +9,6 @@ import DummyPhoto from '../../css/profileImages/dummy-profile-pic.png'
 
 const Posts = () => {
     const match = useRouteMatch()
-    // console.log(id)
-    // const user = useSelector(state => state.user)
-    
     // not grabbing posts
     const userPosts = useSelector(state => state.posts.filter(post => post.owner_id === match.params.id))
     // not grabbing posts ^
@@ -29,6 +27,17 @@ const Posts = () => {
     }
 
 
+    const handleLike = async (postId) => {
+        try {
+            
+            // const likesRes = await axios.get(`${API}/likes/post/${postId}`);
+            // const res = await axios.post(`${API}/likes/post/${postId}/${id}`)
+            // let arr = likesRes.data.body.likes.length
+        } catch (error) {
+            console.log(error)
+            
+        }
+    }
     
     useEffect(() => {
         const fetchUserPosts = async (id) => {
@@ -44,7 +53,6 @@ const Posts = () => {
     }, [])
 
     useEffect(() => {
-
     const fetchUserInfo = async(id) => {
         try {
             let res = await axios.get(`${API}/users/${id}`)
@@ -60,11 +68,9 @@ const Posts = () => {
         }
         fetchUserInfo(match.params.id)
     }
-
     }, [])
 
-    const feedPosts = posts.map((post, i) => {
-        
+    const feedPosts = userPosts.map((post, i) => {
         return (
             <li 
             key={i} 
@@ -74,10 +80,22 @@ const Posts = () => {
             <br/>
             <img className={"PostProfilePic"} src={profilePicture} alt={"Profile"} value={post.owner_id}/>
             <br/>
-            <h3>{username}</h3>
+            <h3 className={"username"}>{post.username}</h3>
             <h5 onClick={() => handleDelete(post.id)} className={"delete"} id={post.id}>x</h5>
             </div>
             <h2 className={"text"}>{post.content}</h2>
+            <div className={"options"}>
+                <img src={Heart} 
+                alt={"heart"} 
+                className={"heart"} 
+                value={post.id} 
+                onClick={
+                    () => handleLike(post.id)
+                } 
+                    />
+                {/* <h4 className={"likes"}>{likes}</h4> */}
+                <h3 className={"timeStamp"}>{post.time_stamp.slice(0, 10)}</h3>
+            </div>
             </li>
         )
     })
