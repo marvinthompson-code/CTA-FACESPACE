@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import FadeIn from 'react-fade-in';
 import { useRouteMatch } from 'react-router-dom'
 import axios from 'axios';
 import { storage } from '../../firebase'
@@ -6,6 +7,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { toggleModalState } from '../modal/modalSlice'
 import { apiURL } from '../../util/apiURL'
 import Modal from 'react-modal'
+import '../../css/EditProfilePicForm.css'
 
 const EditProfilePicModal = () => {
 
@@ -18,7 +20,7 @@ const EditProfilePicModal = () => {
     // variables
     const match = useRouteMatch()
     const API = apiURL()
-    const isOpen = useSelector((state) => state.Modal)
+    let isOpen = useSelector((state) => state.modal)
     const dispatch = useDispatch()
 
     // handlers
@@ -70,7 +72,16 @@ const EditProfilePicModal = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        await axios.patch(`${API}/users/profile_pic/${match.params.id}`)
+        // let res = await axios({
+        //     method: "patch",
+        //     url: `${API}/users/profile_Pic/${match.params.id}`,
+        //     data: imageAsUrl
+        // })
+        // need to fix this 
+        let res = await axios.patch(`${API}/users/profile_Pic/${match.params.id}`, {
+            profile_picture: imageAsUrl
+        })
+        debugger
     }
 
     const closeModal = () => {
@@ -78,16 +89,33 @@ const EditProfilePicModal = () => {
     }
 
     return (
+    
         <Modal
         onRequestClose={closeModal}
         isOpen={isOpen}
         ariaHideApp={false}
-        >
-            <form onSubmit={handleSubmit}>
+        style={{
+            content: {
+                backgroundColor: "#72a276",
+                borderRadius: "13px",
+                borderStyle: "solid",
+                borderWidth: "thin",
+                borderColor: "black",
+                left: "25%",
+                right: "25%",
+            }
+            }}
+            >
+            <FadeIn>
+            <form onSubmit={handleSubmit} className={"editProfilePicForm"}>
+                <h1 className={"editProfilePicTitle"}>Edit Profile Picture</h1>
                 <input type={"file"} className={"uploadInput"} onChange={handleImageAsFile}/>
                 <button type={"button"} className={"upload"} onClick={handleFireBaseUpload}>Upload Image</button>
+                <button type={"submit"} className={"submit"}>Submit</button>
             </form>
-        </Modal>
+        </FadeIn>
+            </Modal>
+    
     )
 }
 

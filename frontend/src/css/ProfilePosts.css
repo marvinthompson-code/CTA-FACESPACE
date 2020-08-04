@@ -1,9 +1,21 @@
+@font-face {
+    src: url('../fonts/Raleway-Light.ttf');
+    font-family: railwayLight;
+}
+
+
+
 .feedPosts {
     border-style: solid;
     width: 60%;
     margin: auto;  
     /* background: rgb(50,41,154);
     background: linear-gradient(0deg, rgba(50,41,154,0.8869922969187675) 13%, rgba(106,116,135,1) 100%); */
+}
+
+.userFeedPostsTitle {
+    font-family: railwayLight;
+    color: white;
 }
 
 .Post {

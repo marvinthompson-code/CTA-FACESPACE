@@ -54,8 +54,8 @@ function App() {
     <ProtectedRoute exact path={"/profile/:id"}>
       <Profile/>
       <PostForm/>
-      <Posts/>
       <EditProfilePicModal/>
+      <Posts/>
     </ProtectedRoute>
 
     </Switch>

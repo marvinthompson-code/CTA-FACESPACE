@@ -1,0 +1,12 @@
+@font-face {
+    src: url('../fonts/Raleway-Light.ttf');
+    font-family: railwayLight;
+}
+
+.editProfilePicForm {
+    margin: auto;
+}
+
+.editProfilePicTitle {
+    font-family: railwayLight;
+}

@@ -10,7 +10,10 @@ const Posts = () => {
     const match = useRouteMatch()
     // console.log(id)
     // const user = useSelector(state => state.user)
+    
+    // not grabbing posts
     const userPosts = useSelector(state => state.posts.filter(post => post.owner_id === match.params.id))
+    // not grabbing posts ^
     console.log(userPosts)
     const API = apiURL()
     const [ posts, setPosts ] = useState([])
@@ -81,7 +84,7 @@ const Posts = () => {
 
     return(
         <div className={"feedPosts"}>
-        <h1>Latest Posts</h1>
+        <h1 className={"userFeedPostsTitle"}>Latest Posts</h1>
             <ul className={"feed"}>
             {feedPosts.length >= 1 ? feedPosts : <div>No Posts to show! Write something!</div>}
             </ul>

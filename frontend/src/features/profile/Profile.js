@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useRouteMatch } from 'react-router-dom';
 import { apiURL } from '../../util/apiURL';
+import FadeIn from 'react-fade-in';
 import axios from 'axios'
 import { useDispatch } from 'react-redux'
 import { toggleModalState } from '../modal/modalSlice'
@@ -35,6 +36,7 @@ const Profile = () => {
     
     return (
         <div>
+            <FadeIn transitionDuration={600}>
             <div className={"ProfileInfo"}>
                 <div className={"BasicInfo"}>
                 <img src={profilePicture} alt={"Profile"} className={"ProfileImg"} onClick={() => dispatch(toggleModalState())}/>
@@ -47,6 +49,7 @@ const Profile = () => {
                 <h3>{email}</h3>
                 </div>
             </div>
+            </FadeIn>
         </div>
     )
 }
