@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import '../../css/Login.css'
+import FadeIn from 'react-fade-in';
 import { updateUser } from '../user/userSlice'
 import { useDispatch } from 'react-redux'
-import { useHistory, NavLink } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import { login } from '../../util/firebaseFunctions'
 import LogoBlack from '../../css/logos/LogoMakr_0FIbYG.png'
 
@@ -39,21 +40,24 @@ const Login = () => {
     }
 
     return (
+        <>
+        <FadeIn>
         <div className={"loginForm"}>
-            <img src={LogoBlack} alt={"logo"}></img> 
+            <img src={LogoBlack} alt={"logo"} className={"logoLogin"}></img> 
             {error ? <div>{error}</div> : null }
             <form onSubmit={handleSubmit} className={"login"}>
-                <input className={"username"}placeholder={"email"} value={email} onChange={(e) => setEmail(e.currentTarget.value)}/>
+                <input className={"usernameInput"}placeholder={"email"} value={email} onChange={(e) => setEmail(e.currentTarget.value)}/>
                 <br></br>
                 <input placeholder={"password"} value={password} onChange={(e) => setPassword(e.currentTarget.value)} type={"password"}/>
                 <br></br>
                 <button className={"submitButton"} type={"submit"}>Log In</button>
             </form>
-            <form onSubmit={handleGuestSubmit}>
+            <form onSubmit={handleGuestSubmit} className={"guestLogin"}>
                 <button type={"submit"} className={"guestSubmitButton"}>Guest Log In</button>
             </form>
-            <NavLink to={"/signup"} activeClassName={"navItem"}>Sign Up</NavLink>
         </div>
+        </FadeIn>
+        </>
     )
 }
 

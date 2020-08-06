@@ -27,7 +27,6 @@ const Post = ({ post }) => {
             }
             debugger
             newPost.owner_id =  user.id
-            newPost.original_author = newPost.original_author
             debugger
             // put in original
             dispatch(createNewPost(newPost))
@@ -65,6 +64,12 @@ const Post = ({ post }) => {
         }
     }
 
+    const deleteButton = ()  => {
+        if (user.id === post.owner_id) {
+            return  <h5 onClick={() => dispatch(deletePostAsync(post.id))} className={"delete"}>x</h5>
+        }
+    }
+
     useEffect(() => {
         fetchUserInfo(post.owner_id)
     }, [])
@@ -80,7 +85,8 @@ const Post = ({ post }) => {
             <img className={"PostProfilePic"} src={profilePicture} alt={"Profile Picture"} value={post.owner_id}/>
             <br/>
             <h3 onClick={() => displayPage(post.owner_id)} className={"username"}>{username}</h3>
-            <h5 onClick={() => dispatch(deletePostAsync(post.id))} className={"delete"}>x</h5>
+            {/* <h5 onClick={() => dispatch(deletePostAsync(post.id))} className={"delete"}>x</h5> */}
+            {deleteButton()}
             </div>
             <img src={post.post_image_url} alt={"facespace post"} className={"faceSpaceImg"}/>
             <h2 className={"text"}>{post.content}</h2>

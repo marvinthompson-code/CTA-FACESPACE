@@ -1,3 +1,9 @@
+@font-face {
+    src: url('../fonts/Raleway-Light.ttf');
+    font-family: railwayLight;
+}
+
+
 .login {
     display: flex;
     flex-direction: column;
@@ -8,11 +14,16 @@
     /* background-color: red; */
 }
 
+input {
+    font-family: railwayLight;
+}
+
 .submitButton {
     width: 15%;
     height: 30px;
     font-size: large;
     padding-bottom: 15px;
+    font-family: railwayLight;
 }
 
 .guestSubmitButton {
@@ -20,6 +31,7 @@
     height: 50px;
     font-size: large;
     padding-bottom: 15px;
+    font-family: railwayLight;
 }
 
 .navItem {
@@ -31,18 +43,36 @@
     padding-bottom: 20px;
     border-style: solid;
     margin: auto;
-    margin-top: 10%;
+    margin-top: 8%;
     width: 45%;
     border-radius: 10px;
     border-color: lightgray;
     background-color: white;
     border-width: thin;
+    font-family: railwayLight;
 }
 
 body {
     background-image: url('../css/profileImages/leaves1920x1234.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    max-width:100%;
+    max-height:100%;
+}
 
+.logoLogin {
+    margin: auto;
+    width: 10%px;
+    height: 10%px;
+    margin-left: 20%;
+}
+
+.guestLogin {
+    width: 100%;
+    text-align: center;
+    margin: auto;
 }
 

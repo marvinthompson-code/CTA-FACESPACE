@@ -129,7 +129,7 @@ const updateProfilePic = async (req, res, next) => {
     try {
         let { id } = req.params
         let { profile_picture } = req.body
-        let user = await db.one("UPDATE users SET profile_picture = $1 WHERE id=$2", [profile_picture, id])
+        let user = await db.one("UPDATE users SET profile_picture = $1 WHERE id=$2 RETURNING *", [profile_picture, id])
         res.status(200).json({
             status: "Successful",
             message: `Profile Picture for user at id:${id} has been Updated!`,

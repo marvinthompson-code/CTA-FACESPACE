@@ -24,6 +24,7 @@
     margin-left: 80px;
     font-size: large;
     color: whitesmoke;
+    text-shadow: 2px 1px 1px black;
 }
 
 #shareTitle:hover {

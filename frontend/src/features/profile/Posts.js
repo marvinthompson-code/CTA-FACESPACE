@@ -9,13 +9,11 @@ import DummyPhoto from '../../css/profileImages/dummy-profile-pic.png'
 
 const Posts = () => {
     const match = useRouteMatch()
-    // not grabbing posts
     const userPosts = useSelector(state => state.posts.filter(post => post.owner_id === match.params.id))
-    // not grabbing posts ^
+    const user  = useSelector(state => state.user)
     console.log(userPosts)
     const API = apiURL()
     const [ posts, setPosts ] = useState([])
-    const [ username, setUsername ] = useState("")
     const [ profilePicture, setProfilePicture ] = useState(null)
 
     const handleDelete = async (id) => {
@@ -25,7 +23,6 @@ const Posts = () => {
             console.log(error)
         }
     }
-
 
     const handleLike = async (postId) => {
         try {
@@ -50,14 +47,13 @@ const Posts = () => {
             }
         }
         fetchUserPosts(match.params.id)
-    }, [])
+    }, [API, match.params.id])
 
     useEffect(() => {
     const fetchUserInfo = async(id) => {
         try {
             let res = await axios.get(`${API}/users/${id}`)
-            let { username, profile_picture } = res.data.body.singleUser
-            setUsername(username)
+            let { profile_picture } = res.data.body.singleUser
             if (!profile_picture) {
                 setProfilePicture(DummyPhoto)
             } else {
@@ -71,6 +67,12 @@ const Posts = () => {
     }, [])
 
     const feedPosts = userPosts.map((post, i) => {
+        const deleteButton = ()  => {
+            if (user.id === post.owner_id) {
+                return  <h5 onClick={() => handleDelete(post.id)} className={"delete"} id={post.id}>x</h5>
+            }
+        }
+    
         return (
             <li 
             key={i} 
@@ -81,8 +83,10 @@ const Posts = () => {
             <img className={"PostProfilePic"} src={profilePicture} alt={"Profile"} value={post.owner_id}/>
             <br/>
             <h3 className={"username"}>{post.username}</h3>
-            <h5 onClick={() => handleDelete(post.id)} className={"delete"} id={post.id}>x</h5>
+            {/* <h5 onClick={() => handleDelete(post.id)} className={"delete"} id={post.id}>x</h5> */}
+            {deleteButton()}
             </div>
+            <img src={post.post_image_url} alt={"facespace post"} className={"faceSpaceImg"}/>
             <h2 className={"text"}>{post.content}</h2>
             <div className={"options"}>
                 <img src={Heart} 

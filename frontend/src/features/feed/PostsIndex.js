@@ -1,13 +1,12 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux'
-import { recieveAllPosts, selectPosts } from '../posts/postsSlice'
-import { apiURL } from '../../util/apiURL'
+import { useDispatch, useSelector } from 'react-redux';
+import { recieveAllPosts, selectPosts } from '../posts/postsSlice';
+import FadeIn from 'react-fade-in';
+import { apiURL } from '../../util/apiURL';
 import axios from 'axios';
+import Post from './Post';
+import SharedPost from './SharedPost';
 import '../../css/Feed.css'
-import Post from './Post'
-import SharedPost from './SharedPost'
-
-
 
 const PostsIndex = () => {
     const dispatch = useDispatch()
@@ -17,9 +16,21 @@ const PostsIndex = () => {
     let feedPosts = posts.map((post) => {
 
         if (post.original_author !== post.owner_id) {
-            return <SharedPost post={post} key={post.id}/>
+            return(
+                <div key={post.id}>
+                <FadeIn>
+                    <SharedPost post={post} key={post.id}/>
+                </FadeIn>
+             </div>
+            )
         } else {
-            return <Post post={post} key={post.id}/>
+            return (
+            <div key={post.id}>
+            <FadeIn>
+             <Post post={post} key={post.id}/>
+            </FadeIn>
+             </div>
+            )
         }
     })
 
@@ -35,7 +46,7 @@ const PostsIndex = () => {
         <div className={"feedPosts"}>
             <h1 className={"feedTitle"}>Latest Posts</h1>
             <ul className={"feed"}>
-                {feedPosts}
+                {feedPosts} 
             </ul>
         </div>
     )

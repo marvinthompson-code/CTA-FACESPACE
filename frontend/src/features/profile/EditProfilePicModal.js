@@ -5,16 +5,15 @@ import axios from 'axios';
 import { storage } from '../../firebase'
 import { useSelector, useDispatch } from 'react-redux'
 import { toggleModalState } from '../modal/modalSlice'
-import { apiURL } from '../../util/apiURL'
 import Modal from 'react-modal'
+import { apiURL } from '../../util/apiURL'
 import '../../css/EditProfilePicForm.css'
 
 const EditProfilePicModal = () => {
 
     // states
-    const allInputs = {imgUrl: ''}
-    const [imageAsFile, setImageAsFile] = useState('')
-    const [imageAsUrl, setImageAsUrl] = useState(allInputs)
+    const [imageAsFile, setImageAsFile] = useState("")
+    const [imageAsUrl, setImageAsUrl] = useState("")
     const [toggleUploadMsg, setToggleUploadMsg] = useState(false);
 
     // variables
@@ -34,9 +33,8 @@ const EditProfilePicModal = () => {
         }
     }
 
-    const handleFireBaseUpload = e => {
-        e.preventDefault()
-        console.log('start of upload')
+    const handleFireBaseUpload = () => {
+    
         if (imageAsFile === "") {
             alert(`Please choose a valid file before uploading`);
         } else if (imageAsFile !== null) {
@@ -72,17 +70,19 @@ const EditProfilePicModal = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        let res = await axios({
-            method: "patch",
-            url: `${API}/users/profile_Pic/${match.params.id}`,
-            body: {
-              profile_picture: imageAsUrl
-            } 
-        })
+        try {
+          let res = await axios({
+              method: "patch",
+              url: `${API}/users/profile_Pic/${match.params.id}`,
+              body: {
+                profile_picture: imageAsUrl
+              } 
+          })
+          debugger
+        } catch (error) {
+          console.log(error)
+        }
         // need to fix this 
-        // let res = await axios.patch(`${API}/users/profile_Pic/${match.params.id}`, {
-        //     profile_picture: imageAsUrl
-        // })
         debugger
     }
 
@@ -93,6 +93,7 @@ const EditProfilePicModal = () => {
     return (
     
         <Modal
+        isOpen={false}
         onRequestClose={closeModal}
         isOpen={isOpen}
         ariaHideApp={false}
@@ -113,6 +114,7 @@ const EditProfilePicModal = () => {
                 <h1 className={"editProfilePicTitle"}>Edit Profile Picture</h1>
                 <input type={"file"} className={"uploadInput"} onChange={handleImageAsFile}/>
                 <button type={"button"} className={"upload"} onClick={handleFireBaseUpload}>Upload Image</button>
+                {toggleUploadMsg ? <h5 className={"uploadMessage"}>Upload successful!</h5> : null}
                 <button type={"submit"} className={"submit"}>Submit</button>
             </form>
         </FadeIn>

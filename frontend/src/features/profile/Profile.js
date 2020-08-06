@@ -3,7 +3,7 @@ import { useRouteMatch } from 'react-router-dom';
 import { apiURL } from '../../util/apiURL';
 import FadeIn from 'react-fade-in';
 import axios from 'axios'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { toggleModalState } from '../modal/modalSlice'
 import DummyPhoto from '../../css/profileImages/dummy-profile-pic.png'
 import '../../css/Profile.css'
@@ -15,6 +15,7 @@ const Profile = () => {
     const [ bio, setBio ] = useState("")
     const [ email, setEmail ] = useState("")
     const [ profilePicture, setProfilePicture ] = useState(null)
+    const user = useSelector(state => state.user)
     const API = apiURL()
     const dispatch = useDispatch()
 
@@ -32,17 +33,22 @@ const Profile = () => {
                 }
             }
             fetchUserInfo(match.params.id)  
-    }, [currentUser])
+    }, [currentUser, API, match.params.id])
+
+    const handleModal = () => {
+        if (match.params.id === user.id) {
+            dispatch(toggleModalState())
+        }
+    }
     
     return (
         <div>
             <FadeIn transitionDuration={600}>
             <div className={"ProfileInfo"}>
                 <div className={"BasicInfo"}>
-                <img src={profilePicture} alt={"Profile"} className={"ProfileImg"} onClick={() => dispatch(toggleModalState())}/>
-                <h5>User</h5>
-                <h2>{username}</h2>
-                <h3>{bio}</h3>
+                <img src={profilePicture} alt={"Profile"} className={"ProfileImg"} onClick={handleModal}/>
+                <h2 className={"username"}>{username}</h2>
+                <h3 className={"bio"}>{bio}</h3>
                 </div>
                 <div className={"contact"}>
                 <h2>Contact</h2>

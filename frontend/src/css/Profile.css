@@ -11,10 +11,20 @@
     flex-direction: row;
     background-color: #db504a;
     font-family: railwayLight;
+    /* color: white;
+    text-shadow: 2px 1px 1px black; */
+    text-align: center;
+}
+
+.bio {
+    font-family: railwayLight;
+    color: white;
+    text-shadow: 2px 1px 1px black;
 }
 
 .BasicInfo {
     padding-top: 15px;
+    text-align: center;
     border-style: solid;
     border-width: thin;
     border-color: lightgray;

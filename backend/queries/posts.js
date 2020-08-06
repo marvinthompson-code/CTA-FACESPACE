@@ -17,11 +17,10 @@ const getAllPosts = async (req, res, next) => {
 }
 const insertNewPost = async (req, res, next) => {
     try {
-        let { content, post_image_url } = req.body
+        let { content, post_image_url, original_author } = req.body
         let owner_id = req.user_id
-        // fix this
-        let original_author = req.original_author
-        // fix this
+        original_author = original_author || req.user_id  
+        
         let newPost = await db.one("INSERT INTO posts (content, post_image_url, owner_id, original_author) VALUES ($1, $2, $3, $4) RETURNING *",
         [content, post_image_url, owner_id, original_author]
         )

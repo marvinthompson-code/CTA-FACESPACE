@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import FadeIn from 'react-fade-in';
 import axios from 'axios';
 import { useHistory, NavLink } from 'react-router-dom';
 import { updateUser } from '../user/userSlice'
@@ -16,6 +17,7 @@ const SignUp = () => {
     const [ password, setPassword ] = useState("");
     const [ error, setError ] = useState(null);
     const [ bio, setBio ] = useState("")
+    const [ profile_picture, setProfile_picture ] = useState("")
 
     // image upload
     const allInputs = {imgUrl: ''}
@@ -62,6 +64,7 @@ const SignUp = () => {
                   .getDownloadURL()
                   .then((fireBaseUrl) => {
                     setImageAsUrl(fireBaseUrl);
+                    setProfile_picture(imageAsUrl)
                   });
               }
             );
@@ -89,7 +92,6 @@ const SignUp = () => {
                 password,
                 fullName,
                 email,
-                profile_picture: imageAsUrl,
                 bio
             })
             dispatch(updateUser(res.user))
@@ -102,11 +104,13 @@ const SignUp = () => {
 
     return (
         <div>
-            <h2>Sign Up!</h2>
+            <h2 className={"signUpTitle"}>Sign Up!</h2>
+            <FadeIn>
             <ul className={"signupInfo"}>
                 <li className={"info"}>Connect with friends and Loved ones!</li>
                 <li className={"info"}>Make a custom Profile!</li>
             </ul>
+            </FadeIn>
             <form onSubmit={handleSubmit} className={"SignUp"}>
             {error ? <div>{error}</div> : null}
                 <input placeholder={"Full Name"} value={fullName} onChange={(e) => setFullName(e.currentTarget.value)} required></input>
@@ -119,11 +123,11 @@ const SignUp = () => {
                 <br></br>
                 <input placeholder={"Add a short bio!"} value={bio} onChange={(e) => setBio(e.currentTarget.value)}></input>
                 <br></br>
-                <label>Upload Profile Picture</label>
+                {/* <label>Upload Profile Picture</label>
                 <input type={"file"} className={"uploadInput"} onChange={handleImageAsFile}/>
                 <button type={"button"} className={"upload"} onClick={handleFireBaseUpload}>Upload Image</button>
                     {toggleUploadMsg ? <h5 id="uploadSuccess">Upload successful!</h5> : null}
-                <br></br>
+                <br></br> */}
                 <button className={"submitButton"}type={"submit"}>Sign me up!</button>
             </form>
 

@@ -16,6 +16,8 @@
 .userFeedPostsTitle {
     font-family: railwayLight;
     color: white;
+    text-align: center;
+    text-shadow: 2px 1px 1px black;
 }
 
 .Post {

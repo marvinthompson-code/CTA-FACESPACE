@@ -7,11 +7,9 @@ import { useDispatch  } from 'react-redux';
 import { deletePostAsync } from '../posts/postsSlice'
 import { useHistory } from 'react-router-dom'
 import '../../css/SharePost.css'
-// import Likes from '../likes/Likes'
-
 const SharedPost = ({ post }) => {
-    const [ username, setUsername ] = useState("")
     const [ original, setOriginal ] = useState("")
+    const [ user, setUser ] = useState("")
     const [ profilePicture, setProfilePicture ] = useState(null)
     const API = apiURL()
     const dispatch = useDispatch()
@@ -22,10 +20,10 @@ const SharedPost = ({ post }) => {
     const fetchUserInfo = async(id) => {
         try {
             let res = await axios.get(`${API}/users/${id}`)
-            let { username, profile_picture } = res.data.body.singleUser
-            setUsername(username)
+            let { profile_picture, username } = res.data.body.singleUser
             if (!profile_picture) {
                 setProfilePicture(DummyPhoto)
+                setUser(username)
             } else {
                 setProfilePicture(profile_picture)      
             }
@@ -50,7 +48,6 @@ const SharedPost = ({ post }) => {
         try {
         } catch (error) {
             console.log(error)
-            
         }
     }
 
@@ -61,7 +58,7 @@ const SharedPost = ({ post }) => {
         return (
             <>
             <div className={"shareContainer"}>
-            <h1 id={"shareTitle"}>{username} shared a post!</h1>
+            <h1 id={"shareTitle"}>{post.username} shared a post!</h1>
             <div className={"sharedPostDiv"}>
             <li 
             id={post.id} 
