@@ -58,7 +58,7 @@ const SharedPost = ({ post }) => {
         return (
             <>
             <div className={"shareContainer"}>
-            <h1 id={"shareTitle"}>{post.username} shared a post!</h1>
+            <h1 id={"shareTitle"}>{user} shared a post!</h1>
             <div className={"sharedPostDiv"}>
             <li 
             id={post.id} 
