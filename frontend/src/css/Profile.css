@@ -1,4 +1,22 @@
 
+:root {
+    --pumpkinOrange: #ec9b59;
+    --pink: #f4d8cd;
+    --lightGreen: #9eb19e;
+    --darkGreen: #164444;
+    --darkBlue: #00202b;
+    --goldenRod: #EAF0CE;
+    --bone: #D5DBC8;
+    --silverSand: #C0C5C1;
+    --silverChalice:#B0B5B5;
+    --quickSilver: #9FA5A9;
+    --romanSilver: #7D8491;
+    --oldLavender: #6A6879;
+    --oldLavenderDark: #615A6D;
+    --englishViolet: #574B60;
+    --englishVioletDarker: #3F334D;
+  }
+
 @font-face {
     src: url('../fonts/Raleway-Light.ttf');
     font-family: railwayLight;
@@ -7,51 +25,51 @@
 
 
 .ProfileInfo {
-    display: flex;
-    flex-direction: row;
-    background-color: #db504a;
+
+    padding-top: 5px;
     font-family: railwayLight;
-    /* color: white;
-    text-shadow: 2px 1px 1px black; */
     text-align: center;
 }
 
 .bio {
     font-family: railwayLight;
-    color: white;
+    color: var(--bone);
     text-shadow: 2px 1px 1px black;
 }
 
 .BasicInfo {
     padding-top: 15px;
+    margin: auto;
     text-align: center;
     border-style: solid;
     border-width: thin;
-    border-color: lightgray;
+    border-color: var(--englishViolet);
+    border-radius: 10px;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 10px 0 rgba(0, 0, 0, 0.19);
     width: 50%;
-    background-color: #43aa8b;
+    background-color:var(--englishViolet);
 }
 
 .contact {
     padding-top: 15px;
     border-style: solid;
     border-width: thin;
+    color: var(--bone);
     border-color: lightgray;
+    text-shadow: 2px 1px 1px black;
     width: 50%;
 }
 
 .ProfileImg {
     height: 100px;
-    border-radius: 20px;
+    border-radius: 10px;
     border-style: solid;
-    border-color: linear-gradient(90deg, rgba(11,181,237,1) 34%, rgba(0,33,255,1) 100%);
+    transition: 2s;
 }
 
 .ProfileImg:hover {
-    color: skyblue;
+    color: var(--pumpkinOrange);
     opacity: 1;
 }
 
-body {
-    background-color: white;
-}
+

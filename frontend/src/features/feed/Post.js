@@ -4,11 +4,9 @@ import { apiURL } from '../../util/apiURL';
 import DummyPhoto from '../../css/profileImages/dummy-profile-pic.png';
 import Heart from '../../css/profileImages/Instagram-Heart-Free-PNG-Image.png';
 import Share from '../../css/profileImages/224-2244409_forward-arrow-icon-share-arrow-png.png';
-// import SharedPost from './SharedPost'
 import { useSelector, useDispatch  } from 'react-redux';
 import { createNewPost, deletePostAsync } from '../posts/postsSlice'
 import { useHistory } from 'react-router-dom'
-// import Likes from '../likes/Likes'
 
 const Post = ({ post }) => {
     const [ username, setUsername ] = useState("")
@@ -25,10 +23,7 @@ const Post = ({ post }) => {
             const newPost = {
                 ...post
             }
-            debugger
             newPost.owner_id =  user.id
-            debugger
-            // put in original
             dispatch(createNewPost(newPost))
             
         } catch (error) {
@@ -54,13 +49,8 @@ const Post = ({ post }) => {
 
     const handleLike = async (postId) => {
         try {
-            
-            // const likesRes = await axios.get(`${API}/likes/post/${postId}`);
-            // const res = await axios.post(`${API}/likes/post/${postId}/${id}`)
-            // let arr = likesRes.data.body.likes.length
         } catch (error) {
             console.log(error)
-            
         }
     }
 
@@ -85,7 +75,6 @@ const Post = ({ post }) => {
             <img className={"PostProfilePic"} src={profilePicture} alt={"Profile Picture"} value={post.owner_id}/>
             <br/>
             <h3 onClick={() => displayPage(post.owner_id)} className={"username"}>{username}</h3>
-            {/* <h5 onClick={() => dispatch(deletePostAsync(post.id))} className={"delete"}>x</h5> */}
             {deleteButton()}
             </div>
             <img src={post.post_image_url} alt={"facespace post"} className={"faceSpaceImg"}/>
@@ -98,8 +87,7 @@ const Post = ({ post }) => {
                 onClick={
                     () => handleLike(post.id)
                 } 
-                    />
-                {/* <h4 className={"likes"}>{likes}</h4> */}
+                />
                 <img src={Share} alt={"share"} className={"share"} onClick={handleShare}/>
                 <h3 className={"timeStamp"}>{post.time_stamp.slice(0, 10)}</h3>
             </div>

@@ -1,15 +1,46 @@
+:root {
+    --pumpkinOrange: #ec9b59;
+    --pink: #f4d8cd;
+    --lightGreen: #9eb19e;
+    --darkGreen: #164444;
+    --darkBlue: #00202b;
+    --goldenRod: #EAF0CE;
+    --bone: #D5DBC8;
+    --silverSand: #C0C5C1;
+    --silverChalice:#B0B5B5;
+    --quickSilver: #9FA5A9;
+    --romanSilver: #7D8491;
+    --oldLavender: #6A6879;
+    --oldLavenderDark: #615A6D;
+    --englishViolet: #574B60;
+    --englishVioletDarker: #3F334D;
+}
+
 @font-face {
     src: url('../fonts/Raleway-Light.ttf');
     font-family: railwayLight;
 }
+.postInputContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 60%;
+    margin: auto;
+    text-align: center;
+}
 
 .postForm {
     padding-top: 45px;
-    margin-left: 25%;
+    /* margin-left: 25%; */
+    /* justify-content: space-evenly; */
+    justify-content: center;
+    text-align: center;
+    /* display: flex; */
+    flex-direction: row;
 }
 
 .inputForm {
-    width: 35%;
+    width: 100%;
     height: 50px;
     font-size: large;
     font-family: railwayLight;
@@ -19,21 +50,45 @@
 .submit {
     height: 50px;
     transition: 2s;
+    background-color: var(--romanSilver);
+    color: var(--bone);
+    border-radius: 10px;
+    border-style: none;
+    transition: 2s;
     font-family: railwayLight;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    font-family: railwayLight;
+}
+
+.submit:active {
+    transform: translateY(4px);
 }
 
 .upload {
     height: 50px;
+    width: 20%;
+    background-color: var(--romanSilver);
+    color: var(--bone);
+    border-radius: 10px;
+    border-style: none;
     transition: 2s;
     font-family: railwayLight;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.upload:active {
+    transform: translateY(4px);
 }
 
 .uploadInput {
     height: 35px;
     transition: 2s;
     border-radius: 10px;
-    color: white;
-    background-color: rgb(255,111,89);
+    background-color: var(--englishVioletDarker);
+    color: var(--bone);
+    border-radius: 10px;
+    border-style: none;
+    transition: 2s;
     font-family: railwayLight;
 }
 .upload:hover {

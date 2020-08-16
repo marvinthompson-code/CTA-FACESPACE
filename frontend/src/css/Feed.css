@@ -1,4 +1,21 @@
 
+:root {
+    --pumpkinOrange: #ec9b59;
+    --pink: #f4d8cd;
+    --lightGreen: #9eb19e;
+    --darkGreen: #164444;
+    --darkBlue: #00202b;
+    --goldenRod: #EAF0CE;
+    --bone: #D5DBC8;
+    --silverSand: #C0C5C1;
+    --silverChalice:#B0B5B5;
+    --quickSilver: #9FA5A9;
+    --romanSilver: #7D8491;
+    --oldLavender: #6A6879;
+    --oldLavenderDark: #615A6D;
+    --englishViolet: #574B60;
+    --englishVioletDarker: #3F334D;
+  }
 
 @font-face {
     src: url('../fonts/Raleway-Light.ttf');
@@ -12,8 +29,8 @@
     max-width: 350px;
     max-height: 350px;
     margin-left: 25%;
-    border-style: solid;
-    border-color: black;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 10px 0 rgba(0, 0, 0, 0.19);
+    border: 5px solid var(--bone);
     border-width: thin;
     border-radius: 10px;
 }
@@ -21,23 +38,24 @@
 
 .feedPosts {
     border-style: none;
-    border-width: thick;
+    /* border-width: thick; */
     border-radius: 10px;
+    border: 10px solid var(--englishVioletDarker);
     padding-right: 40px;
     width: 90%;
     margin: auto; 
-    background-color: #72a276;
+    background-color:var(--englishVioletDarker);
     overflow: scroll;
     height: 600px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .feedTitle {
     font-family: railwayLight;
     width: fit-content;
     margin: auto;
-    color: white;
-    text-shadow: 2px 1px 1px black;
+    color: var(--bone);
+    text-shadow: 1px 1px 1px black;
 }
 
 
@@ -67,13 +85,15 @@
     }
 
 .Post {
-    border-style: solid;
+    /* border-style: solid; */
+    border: 5px solid var(--englishViolet);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 10px;
-    width: 50%;
+    width: 80%;
     position: relative;
     margin: auto;
     margin-bottom: 10px;
-    background-color: whitesmoke;
+    background-color: var(--bone);
     animation: fadeIn ease 3s;
     -webkit-animation: fadeIn ease 3s;
     -moz-animation: fadeIn ease 3s;
@@ -85,21 +105,18 @@
 }
 
 .Post:hover {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     opacity: 1;
-    width: 85%;
+    transform: scale(1.04, 1.04);
 }
 
 .delete {
     margin-left: 70%;
 }
 
-.delete:hover {
-    border-style: solid;
-    border-width: thin;
-}
 .text {
     text-align: center;
+    margin: auto;
+    font-family: railwayLight;
     font-size: large;
     font-weight: lighter;
     padding-left: 5px;
@@ -107,36 +124,26 @@
 
 .PostProfilePic {
     height: 50px;
-    border-radius: 20px;
-    border-style: solid;
-    border-color: linear-gradient(90deg, rgba(255,111,89,1) 0%, rgba(219,80,74,1) 100%);
-    /* background: rgb(255,111,89);
-background: radial-gradient(circle, rgba(255,111,89,1) 0%, rgba(219,80,74,1) 100%); */
+    border-radius: 10px;
 }
 
 .PostProfilePic:hover {
-    color: skyblue;
+    color: white;
     opacity: 1;
 }
 .userPostInfo {
     display: flex;
     padding-right: 10px;
     flex-direction: row;
-    /* border-style: solid; */
-    /* border-width: thin; */
-    /* color: black; */
-    background: rgb(255,111,89);
-    background: radial-gradient(circle, rgba(255,111,89,1) 0%, rgba(219,80,74,1) 100%);
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+    /* background: rgb(255,111,89);
+    background: radial-gradient(circle, rgba(255,111,89,1) 0%, rgba(219,80,74,1) 100%); */
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
 }
 
 .options {
     display: flex;
     flex-direction: row;
-  
-    border-width: thin;
-   
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
 }
@@ -165,7 +172,25 @@ background: radial-gradient(circle, rgba(255,111,89,1) 0%, rgba(219,80,74,1) 100
 
 .username {
     padding-left: 5px;
-    color: white;
+    color: var(--bone);
+    text-shadow: 2px 1px 1px black;
+    transition: 2s;
+}
+
+.username:active {
+    transform: translateY(4px);
+}
+
+.emailProfile {
+    padding-left: 5px;
+    color: var(--bone);
+    text-shadow: 2px 1px 1px black;
+    transition: 2s;
+}
+
+.contactLabel {
+    padding-left: 5px;
+    color: var(--bone);
     text-shadow: 2px 1px 1px black;
     transition: 2s;
 }

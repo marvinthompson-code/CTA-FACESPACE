@@ -49,10 +49,8 @@ const Profile = () => {
                 <img src={profilePicture} alt={"Profile"} className={"ProfileImg"} onClick={handleModal}/>
                 <h2 className={"username"}>{username}</h2>
                 <h3 className={"bio"}>{bio}</h3>
-                </div>
-                <div className={"contact"}>
-                <h2>Contact</h2>
-                <h3>{email}</h3>
+                <label className="contactLabel">Contact:</label>
+                <h3 className={"emailProfile"}>{email}</h3>
                 </div>
             </div>
             </FadeIn>

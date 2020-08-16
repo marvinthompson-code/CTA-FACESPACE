@@ -1,9 +1,25 @@
+:root {
+    --pumpkinOrange: #ec9b59;
+    --pink: #f4d8cd;
+    --lightGreen: #9eb19e;
+    --darkGreen: #164444;
+    --darkBlue: #00202b;
+    --goldenRod: #EAF0CE;
+    --bone: #D5DBC8;
+    --silverSand: #C0C5C1;
+    --silverChalice:#B0B5B5;
+    --quickSilver: #9FA5A9;
+    --romanSilver: #7D8491;
+    --oldLavender: #6A6879;
+    --oldLavenderDark: #615A6D;
+    --englishViolet: #574B60;
+    --englishVioletDarker: #3F334D;
+  }
+
 @font-face {
     src: url('../fonts/Raleway-Light.ttf');
     font-family: railwayLight;
 }
-
-
 
 .feedPosts {
     border-style: solid;
@@ -20,14 +36,7 @@
     text-shadow: 2px 1px 1px black;
 }
 
-.Post {
-    border-style: solid;
-    border-radius: 10px;
-    width: 80%;
-    margin: auto;
-    margin-bottom: 10px;
-    background-color: whitesmoke;
-}
+
 
 .delete {
     margin-left: 70%;
@@ -48,7 +57,7 @@
     height: 50px;
     border-radius: 20px;
     border-style: solid;
-    border-color: radial-gradient(circle, rgba(255,111,89,1) 0%, rgba(219,80,74,1) 100%);
+    border-color: var(--englishViolet)
 }
 
 .PostProfilePic:hover {
@@ -58,10 +67,9 @@
 .userPostInfo {
     display: flex;
     padding-right: 10px;
+    border: 2px solid var(--englishViolet);
+    /* border-radius: 10px; */
+    height: 100%;
     flex-direction: row;
-    border-style: solid;
-    border-width: thin;
-    color: black;
-    background: rgb(255,111,89);
-    background: radial-gradient(circle, rgba(255,111,89,1) 0%, rgba(219,80,74,1) 100%);
+    background: var(--englishViolet);
 }

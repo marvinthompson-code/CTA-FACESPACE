@@ -1,3 +1,23 @@
+:root {
+    --pumpkinOrange: #ec9b59;
+    --pink: #f4d8cd;
+    --lightGreen: #9eb19e;
+    --darkGreen: #164444;
+    --darkBlue: #00202b;
+    --goldenRod: #EAF0CE;
+    --bone: #D5DBC8;
+    --silverSand: #C0C5C1;
+    --silverChalice:#B0B5B5;
+    --quickSilver: #9FA5A9;
+    --romanSilver: #7D8491;
+    --oldLavender: #6A6879;
+    --oldLavenderDark: #615A6D;
+    --englishViolet: #574B60;
+    --englishVioletDarker: #3F334D;
+  }
+
+
+
 @font-face {
     src: url('../fonts/Raleway-Light.ttf');
     font-family: railwayLight;
@@ -23,15 +43,35 @@ input {
     height: 30px;
     font-size: large;
     padding-bottom: 15px;
+    background-color: var(--englishVioletDarker);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color: var(--bone);
+    border-radius: 10px;
+    border-style: none;
+    transition: 2s;
     font-family: railwayLight;
 }
 
+.submitButton:active {
+    transform: translateY(4px);
+}
+
 .guestSubmitButton {
-    width: 15%;
+    width: 20%;
     height: 50px;
     font-size: large;
     padding-bottom: 15px;
+    background-color: var(--englishViolet);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color: var(--bone);
+    border-radius: 10px;
+    border-style: none;
+    transition: 2s;
     font-family: railwayLight;
+}
+
+.guestSubmitButton:active {
+    transform: translateY(4px);
 }
 
 .navItem {
@@ -50,17 +90,6 @@ input {
     background-color: white;
     border-width: thin;
     font-family: railwayLight;
-}
-
-body {
-    background-image: url('../css/profileImages/leaves1920x1234.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100vw;
-    height: 100vh;
-    overflow: auto;
-    max-width:100%;
-    max-height:100%;
 }
 
 .logoLogin {

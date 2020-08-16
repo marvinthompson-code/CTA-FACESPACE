@@ -65,11 +65,15 @@ const PostForm = () => {
     return(
         <>
         <form onSubmit={handleSubmit} className={"postForm"}>
+          <div className={"postInputContainer"}>
             <input placeholder={"Whats on your mind?"} className={"inputForm"} value={input} onChange={(e) => setInput(e.currentTarget.value)}/>
+            <div>
                 <input type={"file"} className={"uploadInput"} onChange={handleImageAsFile}/>
                 <button type={"button"} className={"upload"} onClick={handleFireBaseUpload}>Upload Image</button>
-                    {toggleUploadMsg ? <h5 id="uploadSuccess">Upload successful!</h5> : null}
                 <button type={"submit"} className={"submit"}>Submit</button>
+            </div>
+                    {toggleUploadMsg ? <h5 id="uploadSuccess">Upload successful!</h5> : null}
+          </div>
         </form>
         </>
     ) 

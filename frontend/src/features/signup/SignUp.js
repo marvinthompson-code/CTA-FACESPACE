@@ -86,14 +86,14 @@ const SignUp = () => {
         try {
             let res = await signUp(email, password);
             console.log("Show user", res)
-            await axios.post(`${API}/users/addUser`,{
+                await axios.post(`${API}/users/addUser`,{
                 id: res.user.uid,
                 username,
-                password,
                 fullName,
                 email,
                 bio
             })
+            debugger
             dispatch(updateUser(res.user))
             history.push("/feed")   
         } catch (error) {
