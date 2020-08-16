@@ -11,7 +11,7 @@ const Login = () => {
     const [ email, setEmail ] = useState("");
     const [ password, setPassword ] = useState("");
     const [ error, setError ] = useState(null)
-    const guestEmail = "guest@guest.com"
+    const guestEmail = "test7@test.com"
     const guestPassword = "123456"
 
     const history = useHistory();

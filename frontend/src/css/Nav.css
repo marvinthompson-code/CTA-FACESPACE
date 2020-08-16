@@ -29,7 +29,8 @@ a {
 .nav {
     display: flex;
     justify-content: space-evenly;
-    position: relative;
+    position: fixed;
+    z-index: 4;
     width: 100%;
     font-size: x-large;
     font-family: railwayLight;
