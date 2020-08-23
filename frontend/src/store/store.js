@@ -6,7 +6,7 @@ import likesReducer from '../features/likes/likesSlice'
 import loadingReducer from '../features/loading/loadingSlice'
 import modalReducer from '../features/modal/modalSlice'
 
-import logger from 'redux-logger';
+// import logger from 'redux-logger';
 
 export default configureStore({
     reducer: {
@@ -17,5 +17,5 @@ export default configureStore({
         loading: loadingReducer,
         modal: modalReducer
     },
-    middleware: [...getDefaultMiddleware(), logger]
+    middleware: [...getDefaultMiddleware()]
 })

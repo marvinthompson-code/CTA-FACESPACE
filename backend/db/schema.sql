@@ -1,12 +1,12 @@
-DROP DATABASE IF EXISTS face_space_database;
-CREATE DATABASE face_space_database; 
+-- DROP DATABASE IF EXISTS face_space_database;
+-- CREATE DATABASE face_space_database; 
 
-\c face_space_database;
+-- \c face_space_database;
 
-DROP TABLE IF EXISTS users; 
-DROP TABLE IF EXISTS posts;
-DROP TABLE IF EXISTS likes;
 DROP TABLE IF EXISTS hashtags;
+DROP TABLE IF EXISTS likes;
+DROP TABLE IF EXISTS posts;
+DROP TABLE IF EXISTS users; 
 
 CREATE TABLE users (
     id VARCHAR PRIMARY KEY,

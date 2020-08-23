@@ -62,13 +62,18 @@
 .ProfileImg {
     height: 100px;
     border-radius: 10px;
-    border-style: solid;
+    border: 5px solid var(--bone);
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 10px 0 rgba(0, 0, 0, 0.19);
     transition: 2s;
 }
 
 .ProfileImg:hover {
-    color: var(--pumpkinOrange);
+    border-color: var(--pumpkinOrange);
     opacity: 1;
+}
+
+.ProfileImg:active {
+    transform: translateY(4px);
 }
 
 

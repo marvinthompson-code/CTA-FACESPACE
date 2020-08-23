@@ -85,7 +85,6 @@ const getUserByName = async (req, res, next) => {
     try {
         let { username } = req.params 
         let user = await db.one("SELECT * FROM users WHERE username = $1", [username])
-        console.log(user)
         if (user) {
             res.status(200).json({
                 status: "Successful",

@@ -50,7 +50,6 @@ const Post = ({ post }) => {
     const handleLike = async (postId) => {
         try {
         } catch (error) {
-            console.log(error)
         }
     }
 

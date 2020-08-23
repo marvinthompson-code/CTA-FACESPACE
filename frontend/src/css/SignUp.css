@@ -1,3 +1,22 @@
+:root {
+    --pumpkinOrange: #ec9b59;
+    --pink: #f4d8cd;
+    --lightGreen: #9eb19e;
+    --darkGreen: #164444;
+    --darkBlue: #00202b;
+    --goldenRod: #EAF0CE;
+    --bone: #D5DBC8;
+    --silverSand: #C0C5C1;
+    --silverChalice:#B0B5B5;
+    --quickSilver: #9FA5A9;
+    --romanSilver: #7D8491;
+    --oldLavender: #6A6879;
+    --oldLavenderDark: #615A6D;
+    --englishViolet: #574B60;
+    --englishVioletDarker: #3F334D;
+  }
+
+
 @font-face {
     src: url('../fonts/Raleway-Light.ttf');
     font-family: railwayLight;
@@ -35,17 +54,17 @@ ul {
 }
 
 .signUpTitle {
-    color: white;
+    color: var(--englishViolet);
     font-family: railwayLight;
     font-size: xxx-large;
-    text-shadow: 2px 1px 1px black;
+    text-shadow: 1px 1px 1px var(--englishVioletDarker);
     text-align: center;
 }
 
 .signupInfo {
-    color: white;
+    color: var(--oldLavender);
     font-family: railwayLight;
     font: xx-large;
-    text-shadow: 2px 1px 1px black;
+    text-shadow: 1px 1px 1px var(--oldLavenderDark);
     text-align: center;
 }

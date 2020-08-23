@@ -27,7 +27,9 @@ function App() {
   }, [])
   
   const loading = useSelector(selectLoading)
-  if (loading) return <div className={"Loading"}>LOADING</div>
+  if (loading) return <div className={"Loading"}>
+    LOADING
+    </div>
 
   return (
     <div className="App">

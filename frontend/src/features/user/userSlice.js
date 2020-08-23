@@ -37,7 +37,6 @@ export const updateUser = (user) => async (dispatch) => {
         }
         dispatch(setLoading(false))
     } catch (error) {
-        console.log("error", error)
     }
 }
 

@@ -11,7 +11,6 @@ const Posts = () => {
     const match = useRouteMatch()
     const userPosts = useSelector(state => state.posts.filter(post => post.owner_id === match.params.id))
     const user  = useSelector(state => state.user)
-    console.log(userPosts)
     const API = apiURL()
     const [ posts, setPosts ] = useState([])
     const [ profilePicture, setProfilePicture ] = useState(null)
@@ -20,7 +19,7 @@ const Posts = () => {
         try {
             await axios.delete(`${API}/posts/${id}`)
         } catch (error) {
-            console.log(error)
+
         }
     }
 
@@ -43,7 +42,7 @@ const Posts = () => {
                 let { posts } = res.data.body  
                 setPosts(posts)    
             } catch (error) {
-                console.log("Code Broke", error)
+
             }
         }
         fetchUserPosts(match.params.id)
@@ -59,8 +58,8 @@ const Posts = () => {
             } else {
                 setProfilePicture(profile_picture)      
             }
+            debugger
         } catch (error) {
-            console.log("Nah son", error)
         }
         fetchUserInfo(match.params.id)
     }
@@ -108,7 +107,7 @@ const Posts = () => {
         <div className={"feedPosts"}>
         <h1 className={"userFeedPostsTitle"}>Latest Posts</h1>
             <ul className={"feed"}>
-            {feedPosts.length >= 1 ? feedPosts : <div>No Posts to show! Write something!</div>}
+            {feedPosts.length >= 1 ? feedPosts : <div><h3 className={"noFeed"}>No Posts to show! Write something!</h3></div>}
             </ul>
         </div>
     )

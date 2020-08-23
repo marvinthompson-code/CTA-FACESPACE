@@ -31,12 +31,17 @@
 
 .userFeedPostsTitle {
     font-family: railwayLight;
-    color: white;
+    color: var(--bone);
     text-align: center;
     text-shadow: 2px 1px 1px black;
 }
 
-
+.noFeed {
+    font-family: railwayLight;
+    color: var(--bone);
+    text-align: center;
+    text-shadow: 2px 1px 1px black;
+}
 
 .delete {
     margin-left: 70%;
@@ -55,7 +60,7 @@
 
 .PostProfilePic {
     height: 50px;
-    border-radius: 20px;
+    border-radius: 10px;
     border-style: solid;
     border-color: var(--englishViolet)
 }

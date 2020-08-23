@@ -43,7 +43,7 @@ const Profile = () => {
     
     return (
         <div>
-            <FadeIn transitionDuration={600}>
+            <FadeIn transitionDuration={500}>
             <div className={"ProfileInfo"}>
                 <div className={"BasicInfo"}>
                 <img src={profilePicture} alt={"Profile"} className={"ProfileImg"} onClick={handleModal}/>
