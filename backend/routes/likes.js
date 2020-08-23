@@ -1,11 +1,11 @@
-const likes = require('express').Router();
-const { checkFirebaseToken } = require('../middleware/auth')
+const likes = require("express").Router();
+const { checkFirebaseToken } = require("../middleware/auth");
 
 const {
-    getLikesSinglePost,
-    addSingleLike,
-    deleteSingleLike
-} = require('../queries/likes')
+  getLikesSinglePost,
+  addSingleLike,
+  deleteSingleLike,
+} = require("../queries/likes");
 
 likes.get("/post/:post_id", getLikesSinglePost);
 likes.post("/post/:post_id/:liker_id", addSingleLike);

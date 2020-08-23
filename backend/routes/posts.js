@@ -1,15 +1,15 @@
-const posts = require('express').Router();
-const { checkFirebaseToken } = require('../middleware/auth')
+const posts = require("express").Router();
+const { checkFirebaseToken } = require("../middleware/auth");
 
 const {
-    getAllPosts,
-    insertNewPost,
-    deletePost,
-    editPost,
-    getAllPostsByHashtag,
-    getAllPostsBySingleUser,
-    getSinglePost
-} = require('../queries/posts')
+  getAllPosts,
+  insertNewPost,
+  deletePost,
+  editPost,
+  getAllPostsByHashtag,
+  getAllPostsBySingleUser,
+  getSinglePost,
+} = require("../queries/posts");
 
 posts.get("/", getAllPosts);
 posts.get("/:id", getSinglePost);

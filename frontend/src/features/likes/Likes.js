@@ -1,28 +1,23 @@
-import React,{ useState, useEffect } from 'react'
-import { useDispatch } from 'react-redux'
-import axios from 'axios'
-import { apiURL } from '../../util/apiURL'
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { apiURL } from "../../util/apiURL";
 
 const Likes = ({ postId, likerId }) => {
-    const [counter, setCounter] = useState(0)
-    const API = apiURL()
-    const dispatch = useDispatch()
+  const [counter, setCounter] = useState(0);
+  const API = apiURL();
 
+  const handleClick = async (e) => {
+    e.preventDefault();
+    await axios.post(`${API}/likes/post/${postId}/${likerId}`);
 
-    const handleClick = async (e) => {
-        e.preventDefault()
-        await axios.post(`${API}/likes/post/${postId}/${likerId}`)
-        
-        await axios.get(`${API}/likes/post/${postId}`)
-        
-    }
-    
+    await axios.get(`${API}/likes/post/${postId}`);
+  };
 
-    return (
-        <>
-        <h4 id={"counter"}>{counter}</h4>
-        </>
-    )
-}
+  return (
+    <>
+      <h4 id={"counter"}>{counter}</h4>
+    </>
+  );
+};
 
-export default Likes
+export default Likes;
