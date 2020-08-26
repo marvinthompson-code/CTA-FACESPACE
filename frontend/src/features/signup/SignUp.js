@@ -138,11 +138,12 @@ const SignUp = () => {
           required
         ></input>
         <br></br>
-        <input
+        <textarea
           placeholder={"Add a short bio!"}
           value={bio}
           onChange={(e) => setBio(e.currentTarget.value)}
-        ></input>
+          className="bioTextArea"
+        ></textarea>
         <br></br>
         <label className="contactLabel">Upload Profile Picture</label>
         <input

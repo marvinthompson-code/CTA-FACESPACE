@@ -35,7 +35,7 @@ const PostsIndex = () => {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      let res = await axios.get(`${API}/posts/`);
+      let res = await axios.get(`${API}/posts`);
       dispatch(recieveAllPosts(res.data.body.posts));
     };
     fetchPosts();

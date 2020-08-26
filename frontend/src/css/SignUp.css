@@ -68,3 +68,10 @@ ul {
     text-shadow: 1px 1px 1px var(--oldLavenderDark);
     text-align: center;
 }
+
+.bioTextArea {
+    font-family: railwayLight;
+    height: 80px;
+    width: 200px;
+    font-size: large;
+}

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { apiURL } from "../../util/apiURL";
 import DummyPhoto from "../../css/profileImages/dummy-profile-pic.png";
-import Heart from "../../css/profileImages/Instagram-Heart-Free-PNG-Image.png";
+// import Heart from "../../css/profileImages/Instagram-Heart-Free-PNG-Image.png";
 import Share from "../../css/profileImages/224-2244409_forward-arrow-icon-share-arrow-png.png";
 import { useSelector, useDispatch } from "react-redux";
 import { createNewPost, deletePostAsync } from "../posts/postsSlice";
@@ -26,7 +26,7 @@ const Post = ({ post }) => {
       newPost.owner_id = user.id;
       dispatch(createNewPost(newPost));
     } catch (error) {
-      console.log("Error", error);
+      // error page
     }
   };
 
@@ -41,13 +41,8 @@ const Post = ({ post }) => {
         setProfilePicture(profile_picture);
       }
     } catch (error) {
-      console.log("Error", error);
+      // error page
     }
-  };
-
-  const handleLike = async (postId) => {
-    try {
-    } catch (error) {}
   };
 
   const deleteButton = () => {
@@ -66,9 +61,8 @@ const Post = ({ post }) => {
   useEffect(() => {
     fetchUserInfo(post.owner_id);
   }, []);
-  // ternary to check if the post is yours or someone else's, display in a nested div if a shared post
+
   return (
-    //
     <li id={post.id} className={"Post"}>
       <div className={"userPostInfo"}>
         <br />
@@ -84,20 +78,15 @@ const Post = ({ post }) => {
         </h3>
         {deleteButton()}
       </div>
-      <img
-        src={post.post_image_url}
-        alt={"facespace post"}
-        className={"faceSpaceImg"}
-      />
+      {post.post_image_url === "" ? null : (
+        <img
+          src={post.post_image_url}
+          alt={"facespace post"}
+          className={"faceSpaceImg"}
+        />
+      )}
       <h2 className={"text"}>{post.content}</h2>
       <div className={"options"}>
-        <img
-          src={Heart}
-          alt={"heart"}
-          className={"heart"}
-          value={post.id}
-          onClick={() => handleLike(post.id)}
-        />
         <img
           src={Share}
           alt={"share"}

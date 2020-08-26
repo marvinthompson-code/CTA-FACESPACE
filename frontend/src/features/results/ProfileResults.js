@@ -33,7 +33,7 @@ const ProfileResults = () => {
           setProfilePicture(profile_picture);
         }
       } catch (error) {
-        console.log(error);
+        // error page
       }
     };
     fetchUserInfo(id);

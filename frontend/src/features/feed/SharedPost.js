@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { apiURL } from "../../util/apiURL";
 import DummyPhoto from "../../css/profileImages/dummy-profile-pic.png";
-import Heart from "../../css/profileImages/Instagram-Heart-Free-PNG-Image.png";
 import { useDispatch } from "react-redux";
 import { deletePostAsync } from "../posts/postsSlice";
 import { useHistory } from "react-router-dom";
@@ -29,7 +28,7 @@ const SharedPost = ({ post }) => {
       }
       setOriginal(post.original_author);
     } catch (error) {
-      console.log("Error", error);
+      // error page
     }
   };
 
@@ -37,16 +36,11 @@ const SharedPost = ({ post }) => {
     try {
       let res = await axios.get(`${API}/users/${id}`);
       let { username } = res.data.body.singleUser;
+      debugger;
       setOriginal(username);
+      debugger;
     } catch (error) {
-      console.log("Error", error);
-    }
-  };
-
-  const handleLike = async (postId) => {
-    try {
-    } catch (error) {
-      console.log(error);
+      // error page
     }
   };
 
@@ -82,20 +76,15 @@ const SharedPost = ({ post }) => {
                 x
               </h5>
             </div>
-            <img
-              src={post.post_image_url}
-              alt={"facespace post"}
-              className={"faceSpaceImg"}
-            />
+            {post.post_image_url === "" ? null : (
+              <img
+                src={post.post_image_url}
+                alt={"facespace post"}
+                className={"faceSpaceImg"}
+              />
+            )}
             <h2 className={"text"}>{post.content}</h2>
             <div className={"options"}>
-              <img
-                src={Heart}
-                alt={"heart"}
-                className={"heart"}
-                value={post.id}
-                onClick={() => handleLike(post.id)}
-              />
               <h3 className={"timeStamp"}>{post.time_stamp.slice(0, 10)}</h3>
             </div>
           </li>

@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
-import Heart from "../../css/profileImages/Instagram-Heart-Free-PNG-Image.png";
+import { useSelector, useDispatch } from "react-redux";
 import { useRouteMatch } from "react-router-dom";
+import FadeIn from "react-fade-in";
+import SharedPost from "../feed/SharedPost";
 import axios from "axios";
+import Share from "../../css/profileImages/224-2244409_forward-arrow-icon-share-arrow-png.png";
 import { apiURL } from "../../util/apiURL";
+import { createNewPost, deletePostAsync } from "../posts/postsSlice";
 import "../../css/ProfilePosts.css";
 import DummyPhoto from "../../css/profileImages/dummy-profile-pic.png";
 
 const Posts = () => {
   const match = useRouteMatch();
+  const dispatch = useDispatch();
   const userPosts = useSelector((state) =>
     state.posts.filter((post) => post.owner_id === match.params.id)
   );
@@ -21,13 +25,6 @@ const Posts = () => {
     try {
       await axios.delete(`${API}/posts/${id}`);
     } catch (error) {}
-  };
-
-  const handleLike = async (postId) => {
-    try {
-    } catch (error) {
-      console.log(error);
-    }
   };
 
   useEffect(() => {
@@ -57,55 +54,79 @@ const Posts = () => {
     };
   }, []);
 
+  const handleShare = (post) => {
+    try {
+      const newPost = {
+        ...post,
+      };
+      newPost.owner_id = user.id;
+      dispatch(createNewPost(newPost));
+    } catch (error) {
+      // error page
+    }
+  };
+
   const feedPosts = userPosts.map((post, i) => {
-    const deleteButton = () => {
-      if (user.id === post.owner_id) {
-        return (
-          <h5
-            onClick={() => handleDelete(post.id)}
-            className={"delete"}
-            id={post.id}
-          >
-            x
-          </h5>
-        );
-      }
-    };
-
-    return (
-      <li key={i} id={post.id} className={"Post"}>
-        <div className={"userPostInfo"}>
-          <br />
-          <img
-            className={"PostProfilePic"}
-            src={profilePicture}
-            alt={"Profile"}
-            value={post.owner_id}
-          />
-          <br />
-          <h3 className={"username"}>{post.username}</h3>
-
-          {deleteButton()}
+    if (post.original_author !== post.owner_id) {
+      return (
+        <div key={post.id}>
+          <FadeIn>
+            <SharedPost post={post} key={post.id} />
+          </FadeIn>
         </div>
-        <img
-          src={post.post_image_url}
-          alt={"facespace post"}
-          className={"faceSpaceImg"}
-        />
-        <h2 className={"text"}>{post.content}</h2>
-        <div className={"options"}>
-          <img
-            src={Heart}
-            alt={"heart"}
-            className={"heart"}
-            value={post.id}
-            onClick={() => handleLike(post.id)}
-          />
+      );
+    } else {
+      const deleteButton = () => {
+        if (user.id === post.owner_id) {
+          return (
+            <h5
+              onClick={() => handleDelete(post.id)}
+              className={"delete"}
+              id={post.id}
+            >
+              x
+            </h5>
+          );
+        }
+      };
 
-          <h3 className={"timeStamp"}>{post.time_stamp.slice(0, 10)}</h3>
-        </div>
-      </li>
-    );
+      return (
+        <li key={i} id={post.id} className={"Post"}>
+          <div className={"userPostInfo"}>
+            <br />
+            <img
+              className={"PostProfilePic"}
+              src={profilePicture}
+              alt={"Profile"}
+              value={post.owner_id}
+            />
+            <br />
+            <h3 className={"username"}>{post.username}</h3>
+
+            {deleteButton()}
+          </div>
+          {post.post_image_url === "" ? null : (
+            <img
+              src={post.post_image_url}
+              alt={"facespace post"}
+              className={"faceSpaceImg"}
+            />
+          )}
+          <h2 className={"text"}>{post.content}</h2>
+          <div className={"options"}>
+            {user.id !== post.owner_id ? (
+              <img
+                src={Share}
+                alt={"share"}
+                className={"share"}
+                onClick={handleShare}
+              />
+            ) : null}
+            <h3 className={"timeStamp"}>{post.time_stamp.slice(0, 10)}</h3>
+          </div>
+        </li>
+      );
+    }
   });
 
   return (

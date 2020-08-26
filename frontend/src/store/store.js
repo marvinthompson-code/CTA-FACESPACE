@@ -6,8 +6,6 @@ import likesReducer from '../features/likes/likesSlice'
 import loadingReducer from '../features/loading/loadingSlice'
 import modalReducer from '../features/modal/modalSlice'
 
-// import logger from 'redux-logger';
-
 export default configureStore({
     reducer: {
         posts: postsReducer,
