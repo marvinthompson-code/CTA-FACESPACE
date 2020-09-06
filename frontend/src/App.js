@@ -14,8 +14,17 @@ import Posts from './features/profile/Posts'
 import { AuthRoute, ProtectedRoute } from './util/routesUtil'
 import { selectLoading } from './features/loading/loadingSlice';
 import { useSelector, useDispatch } from 'react-redux'
+import { css } from "@emotion/core";
+import FadeLoader from "react-spinners/FadeLoader";
+
 
 function App() {
+
+  const override = css`
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+`;
 
   const dispatch = useDispatch()
   useEffect(() => {
@@ -27,9 +36,17 @@ function App() {
   }, [])
   
   const loading = useSelector(selectLoading)
-  if (loading) return <div className={"Loading"}>
-    LOADING
-    </div>
+  if (loading) return <div className="sweet-loading">
+  <FadeLoader
+    css={override}
+    size={150}
+    color={"#3F334D"}
+    loading={loading}
+  />
+  <h1 style={{
+    paddingLeft: "45%"
+  }}>LOADING..</h1>
+</div>
 
   return (
     <div className="App">

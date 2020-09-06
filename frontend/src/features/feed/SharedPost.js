@@ -4,6 +4,7 @@ import { apiURL } from "../../util/apiURL";
 import DummyPhoto from "../../css/profileImages/dummy-profile-pic.png";
 import { useDispatch } from "react-redux";
 import { deletePostAsync } from "../posts/postsSlice";
+import trashcan from "../../css/profileImages/trash.png";
 import { useHistory } from "react-router-dom";
 import "../../css/SharePost.css";
 const SharedPost = ({ post }) => {
@@ -69,12 +70,13 @@ const SharedPost = ({ post }) => {
               >
                 {original}
               </h3>
-              <h5
+              <button
+                type="button"
                 onClick={() => dispatch(deletePostAsync(post.id))}
                 className={"delete"}
               >
-                x
-              </h5>
+                <img src={trashcan} className={"deleteTrash"} />
+              </button>
             </div>
             {post.post_image_url === "" ? null : (
               <img

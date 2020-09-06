@@ -6,9 +6,9 @@ import Share from "../../css/profileImages/224-2244409_forward-arrow-icon-share-
 import { useSelector, useDispatch } from "react-redux";
 import { createNewPost, deletePostAsync } from "../posts/postsSlice";
 import { useHistory } from "react-router-dom";
-import trashcan from "../../css/profileImages/trash.png"
+import trashcan from "../../css/profileImages/trash.png";
 
-const Post = ({ post }) => {
+const ProfilePost = ({ post }) => {
   const [username, setUsername] = useState("");
   const [profilePicture, setProfilePicture] = useState(null);
   const user = useSelector((state) => state.user);
@@ -100,4 +100,4 @@ const Post = ({ post }) => {
   );
 };
 
-export default Post;
+export default ProfilePost;

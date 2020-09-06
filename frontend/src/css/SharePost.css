@@ -24,10 +24,12 @@
     font-size: large;
     color: whitesmoke;
     text-shadow: 2px 1px 1px black;
+    transition: 1s;
 }
 
 #shareTitle:hover {
     color:  rgba(255,111,89,1);
+    cursor: pointer;
 }
 
 #shareSymbol {

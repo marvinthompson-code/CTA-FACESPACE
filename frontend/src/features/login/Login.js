@@ -60,7 +60,7 @@ const Login = () => {
               type={"password"}
             />
             <br></br>
-            <button className={"submitButton"} type={"submit"}>
+            <button className={"loginButton"} type={"submit"}>
               Log In
             </button>
           </form>

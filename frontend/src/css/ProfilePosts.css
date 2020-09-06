@@ -44,12 +44,18 @@
 }
 
 .delete {
-    margin-left: 70%;
+    height: 20px;
+    border-radius: 10px;
+    background-color: var(--bone);
+    border-color: var(--englishVioletDarker);
 }
 
-.delete:hover {
-    border-style: solid;
-    border-width: thin;
+.deleteTrash {
+    height: 10px;
+    transition: 1s;
+}
+.deleteTrash:hover {
+    cursor: pointer;    
 }
 .text {
     text-align: left;
