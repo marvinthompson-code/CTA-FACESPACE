@@ -40,10 +40,10 @@ const Login = () => {
   };
 
   return (
-    <>
-      <FadeIn>
+    <div className="container">
+      
         <div className={"loginForm"}>
-          <img src={LogoBlack} alt={"logo"} className={"logoLogin"}></img>
+          {/* <img src={LogoBlack} alt={"logo"} className={"logoLogin"}></img> */}
           {error ? <div>{error}</div> : null}
           <form onSubmit={handleSubmit} className={"login"}>
             <input
@@ -70,8 +70,8 @@ const Login = () => {
             </button>
           </form>
         </div>
-      </FadeIn>
-    </>
+      
+    </div>
   );
 };
 

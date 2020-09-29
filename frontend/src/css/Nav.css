@@ -36,9 +36,23 @@ a {
     font-family: railwayLight;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     background: var(--englishVioletDarker);
+    line-height: 50px;
+    padding-top: 0;
+    padding-bottom: 0;
     /* background: radial-gradient(circle, rgba(255,111,89,1) 0%, rgba(219,80,74,1) 100%); */
 }
 
+nav-link {
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 3vh;
+    line-height: 50px;
+  }
+
+  a {
+      font-size: 3vh;
+      padding: 5px;
+  }
 .logOut:hover {
     color: white;
 }

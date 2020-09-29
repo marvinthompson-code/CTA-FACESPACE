@@ -23,6 +23,13 @@
     font-family: railwayLight;
 }
 
+.container {
+    height: 100vh; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    padding: 20%;
+}
 
 .login {
     display: flex;
@@ -77,12 +84,15 @@ input {
 }
 
 .loginForm {
-    padding-top: 20px;
-    padding-bottom: 20px;
+    /* padding-top: 20px;
+    padding-bottom: 20px; */
+    vertical-align: center;
     border-style: solid;
     margin: auto;
     margin-top: 8%;
-    width: 45%;
+    height: auto;
+    
+    width: 100%;
     border-radius: 10px;
     border-color: lightgray;
     background-color: white;
