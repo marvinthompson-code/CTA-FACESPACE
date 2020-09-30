@@ -41,36 +41,37 @@ const Login = () => {
 
   return (
     <div className="container">
-      
-        <div className={"loginForm"}>
-          {/* <img src={LogoBlack} alt={"logo"} className={"logoLogin"}></img> */}
-          {error ? <div>{error}</div> : null}
-          <form onSubmit={handleSubmit} className={"login"}>
-            <input
-              className={"usernameInput"}
-              placeholder={"email"}
-              value={email}
-              onChange={(e) => setEmail(e.currentTarget.value)}
-            />
-            <br></br>
-            <input
-              placeholder={"password"}
-              value={password}
-              onChange={(e) => setPassword(e.currentTarget.value)}
-              type={"password"}
-            />
-            <br></br>
-            <button className={"loginButton"} type={"submit"}>
-              Log In
-            </button>
-          </form>
-          <form onSubmit={handleGuestSubmit} className={"guestLogin"}>
-            <button type={"submit"} className={"guestSubmitButton"}>
-              Guest Log In
-            </button>
-          </form>
+      <div className={"loginForm"}>
+        <div className={"loginLogoDiv"}>
+          <img src={LogoBlack} alt={"logo"} className={"logoLogin"}></img>
         </div>
-      
+        {error ? <div>{error}</div> : null}
+        <form onSubmit={handleSubmit} className={"login"}>
+          <input
+            className={"usernameInput"}
+            placeholder={"email"}
+            value={email}
+            onChange={(e) => setEmail(e.currentTarget.value)}
+          />
+          <br></br>
+          <input
+            placeholder={"password"}
+            className={"usernameInput"}
+            value={password}
+            onChange={(e) => setPassword(e.currentTarget.value)}
+            type={"password"}
+          />
+          <br></br>
+          <button className={"loginButton"} type={"submit"}>
+            Log In
+          </button>
+        </form>
+        <form onSubmit={handleGuestSubmit} className={"guestLogin"}>
+          <button type={"submit"} className={"guestSubmitButton"}>
+            Guest Log In
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

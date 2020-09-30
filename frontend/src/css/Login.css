@@ -1,116 +1,144 @@
 :root {
-    --pumpkinOrange: #ec9b59;
-    --pink: #f4d8cd;
-    --lightGreen: #9eb19e;
-    --darkGreen: #164444;
-    --darkBlue: #00202b;
-    --goldenRod: #EAF0CE;
-    --bone: #D5DBC8;
-    --silverSand: #C0C5C1;
-    --silverChalice:#B0B5B5;
-    --quickSilver: #9FA5A9;
-    --romanSilver: #7D8491;
-    --oldLavender: #6A6879;
-    --oldLavenderDark: #615A6D;
-    --englishViolet: #574B60;
-    --englishVioletDarker: #3F334D;
-  }
-
-
+  --pumpkinOrange: #ec9b59;
+  --pink: #f4d8cd;
+  --lightGreen: #9eb19e;
+  --darkGreen: #164444;
+  --darkBlue: #00202b;
+  --goldenRod: #eaf0ce;
+  --bone: #d5dbc8;
+  --silverSand: #c0c5c1;
+  --silverChalice: #b0b5b5;
+  --quickSilver: #9fa5a9;
+  --romanSilver: #7d8491;
+  --oldLavender: #6a6879;
+  --oldLavenderDark: #615a6d;
+  --englishViolet: #574b60;
+  --englishVioletDarker: #3f334d;
+}
 
 @font-face {
-    src: url('../fonts/Raleway-Light.ttf');
-    font-family: railwayLight;
+  src: url("../fonts/Raleway-Light.ttf");
+  font-family: railwayLight;
 }
 
 .container {
-    height: 100vh; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center;
-    padding: 20%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .login {
-    display: flex;
-    flex-direction: column;
-    transition-timing-function: ease-in-out;
-    align-items: center;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  transition-timing-function: ease-in-out;
+  align-items: center;
+  width: 100%;
+}
+
+.usernameInput {
+  width: 60%;
+  margin: 10px;
 }
 
 input {
-    font-family: railwayLight;
+  font-family: railwayLight;
 }
 
 .loginButton {
-    width: 20%;
-    height: 50px;
-    font-size: large;
-    padding-bottom: 5px;
-    background-color: var(--englishVioletDarker);
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    color: var(--bone);
-    border-radius: 10px;
-    border-style: none;
-    transition: 2s;
-    font-family: railwayLight;
+  width: 60%;
+  height: 50px;
+  font-size: large;
+  padding-bottom: 5px;
+  background-color: var(--englishVioletDarker);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  color: var(--bone);
+  border-radius: 10px;
+  border-style: none;
+  transition: 2s;
+  margin: 5px;
+  font-family: railwayLight;
 }
 
 .loginButton:active {
-    transform: translateY(4px);
+  transform: translateY(4px);
 }
 
 .guestSubmitButton {
-    width: 20%;
-    height: 50px;
-    font-size: large;
-    padding-bottom: 5px;
-    background-color: var(--englishVioletDarker);
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    color: var(--bone);
-    border-radius: 10px;
-    border-style: none;
-    transition: 2s;
-    font-family: railwayLight;
+  width: 60%;
+  height: 50px;
+  font-size: large;
+  padding-bottom: 5px;
+  background-color: var(--englishVioletDarker);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  color: var(--bone);
+  border-radius: 10px;
+  border-style: none;
+  transition: 2s;
+  font-family: railwayLight;
+  margin: 5px;
+  margin-bottom: 5px;
 }
 
 .guestSubmitButton:active {
-    transform: translateY(4px);
+  transform: translateY(4px);
 }
 
 .navItem {
-    padding-left: 30px;
+  padding-left: 30px;
 }
 
 .loginForm {
-    /* padding-top: 20px;
-    padding-bottom: 20px; */
-    vertical-align: center;
-    border-style: solid;
-    margin: auto;
-    margin-top: 8%;
-    height: auto;
-    
-    width: 100%;
-    border-radius: 10px;
-    border-color: lightgray;
-    background-color: white;
-    border-width: thin;
-    font-family: railwayLight;
-    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  vertical-align: center;
+  border-style: solid;
+  margin: auto;
+  margin-top: 10%;
+  height: auto;
+  width: 60%;
+  border-radius: 10px;
+  border-color: lightgray;
+  background-color: white;
+  border-width: thin;
+  font-family: railwayLight;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+@media only screen and (max-width: 600px) {
+  .loginForm {
+    margin-top: 25%;
+  }
+}
+
+
 .logoLogin {
-    margin: auto;
-    width: 10%px;
-    height: 10%px;
-    margin-left: 20%;
+  /* margin: auto; */
+  padding-top: unset;
+  /* width: 100%; */
+  text-align: center;
+  height: 100px;
+  /* max-height: 30px; */
+}
+
+@media only screen and (max-width: 600px) {
+ .logoLogin {
+     height: 100%;
+     margin: auto;
+     width: 100%;
+     font-size: 3vh;
+ }
+}
+
+.loginLogoDiv {
+  width: 60%;
+  height: auto;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
 }
 
 .guestLogin {
-    width: 100%;
-    text-align: center;
-    margin: auto;
+  width: 100%;
+  text-align: center;
+  margin: auto;
 }
-
