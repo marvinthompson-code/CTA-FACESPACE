@@ -1,206 +1,221 @@
-
 :root {
-    --pumpkinOrange: #ec9b59;
-    --pink: #f4d8cd;
-    --lightGreen: #9eb19e;
-    --darkGreen: #164444;
-    --darkBlue: #00202b;
-    --goldenRod: #EAF0CE;
-    --bone: #D5DBC8;
-    --silverSand: #C0C5C1;
-    --silverChalice:#B0B5B5;
-    --quickSilver: #9FA5A9;
-    --romanSilver: #7D8491;
-    --oldLavender: #6A6879;
-    --oldLavenderDark: #615A6D;
-    --englishViolet: #574B60;
-    --englishVioletDarker: #3F334D;
-  }
+  --pumpkinOrange: #ec9b59;
+  --pink: #f4d8cd;
+  --lightGreen: #9eb19e;
+  --darkGreen: #164444;
+  --darkBlue: #00202b;
+  --goldenRod: #eaf0ce;
+  --bone: #d5dbc8;
+  --silverSand: #c0c5c1;
+  --silverChalice: #b0b5b5;
+  --quickSilver: #9fa5a9;
+  --romanSilver: #7d8491;
+  --oldLavender: #6a6879;
+  --oldLavenderDark: #615a6d;
+  --englishViolet: #574b60;
+  --englishVioletDarker: #3f334d;
+}
 
 @font-face {
-    src: url('../fonts/Raleway-Light.ttf');
-    font-family: railwayLight;
+  src: url("../fonts/Raleway-Light.ttf");
+  font-family: railwayLight;
 }
 
 .faceSpaceImg {
-    height: auto;
-    margin: auto;
-    width: 100%;
-    max-width: 350px;
-    max-height: 350px;
-    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 10px 0 rgba(0, 0, 0, 0.19);
-    border: 5px solid var(--bone);
-    border-width: thin;
-    border-radius: 10px;
+  height: auto;
+  margin: auto;
+  width: 100%;
+  max-width: 350px;
+  max-height: 350px;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 10px 0 rgba(0, 0, 0, 0.19);
+  border: 5px solid var(--bone);
+  border-width: thin;
+  border-radius: 10px;
 }
 
-
 .feedPosts {
-    border-style: none;
-    /* border-width: thick; */
-    border-radius: 10px;
-    border: 10px solid var(--englishVioletDarker);
-    padding-right: 40px;
-    width: 90%;
-    margin: auto; 
-    background-color:var(--englishVioletDarker);
-    overflow: scroll;
-    height: 600px;
-    box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-style: none;
+  border-radius: 10px;
+  border: 10px solid var(--englishVioletDarker);
+  width: 100%;
+  margin: auto;
+  background-color: var(--englishVioletDarker);
+  overflow: scroll;
+  height: 600px;
+  box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .feedTitle {
-    font-family: railwayLight;
-    width: fit-content;
-    margin: auto;
-    color: var(--bone);
-    text-shadow: 1px 1px 1px black;
+  font-family: railwayLight;
+  width: fit-content;
+  margin: auto;
+  color: var(--bone);
+  text-shadow: 1px 1px 1px black;
 }
 
-
 @keyframes fadeIn {
-    0% {opacity:0;}
-    100% {opacity:1;}
-    }
-    
-    @-moz-keyframes fadeIn {
-    0% {opacity:0;}
-    100% {opacity:1;}
-    }
-    
-    @-webkit-keyframes fadeIn {
-    0% {opacity:0;}
-    100% {opacity:1;}
-    }
-    
-    @-o-keyframes fadeIn {
-    0% {opacity:0;}
-    100% {opacity:1;}
-    }
-    
-    @-ms-keyframes fadeIn {
-    0% {opacity:0;}
-    100% {opacity:1;}
-    }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 
 .Post {
-    /* border-style: solid; */
-    border: 5px solid var(--englishViolet);
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    border-radius: 10px;
-    width: 80%;
-    position: relative;
-    margin: auto;
-    margin-bottom: 10px;
-    background-color: var(--bone);
-    animation: fadeIn ease 3s;
-    -webkit-animation: fadeIn ease 3s;
-    -moz-animation: fadeIn ease 3s;
-    -o-animation: fadeIn ease 3s;
-    -ms-animation: fadeIn ease 3s;
-    transition: 2s;
-    font-family: railwayLight;
+  /* border-style: solid; */
+  border: 5px solid var(--englishViolet);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 10px;
+  width: 100%;
 
+  margin: auto;
+  margin-bottom: 10px;
+  background-color: var(--bone);
+  animation: fadeIn ease 3s;
+  -webkit-animation: fadeIn ease 3s;
+  -moz-animation: fadeIn ease 3s;
+  -o-animation: fadeIn ease 3s;
+  -ms-animation: fadeIn ease 3s;
+  transition: 2s;
+  font-family: railwayLight;
 }
 
 .Post:hover {
-    opacity: 1;
-    transform: scale(1.04, 1.04);
+  opacity: 1;
+  transform: scale(1.04, 1.04);
 }
 
 .delete {
-   
-    
 }
 
 .text {
-    text-align: center;
-    margin: auto;
-    font-family: railwayLight;
-    font-size: large;
-    font-weight: lighter;
-    padding-left: 5px;
+  text-align: center;
+  margin: auto;
+  font-family: railwayLight;
+  font-size: large;
+  font-weight: lighter;
+  padding: 10px;
+  /* padding-left: 5px; */
 }
 
 .PostProfilePic {
-    height: 50px;
-    border-radius: 10px;
+  height: 50px;
+  border-radius: 10px;
 }
 
 .PostProfilePic:hover {
-    color: white;
-    opacity: 1;
+  color: white;
+  opacity: 1;
 }
 .userPostInfo {
-    display: flex;
-    padding-right: 10px;
-    flex-direction: row;
-    /* background: rgb(255,111,89);
+  display: flex;
+  padding-right: 10px;
+  flex-direction: row;
+  /* background: rgb(255,111,89);
     background: radial-gradient(circle, rgba(255,111,89,1) 0%, rgba(219,80,74,1) 100%); */
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
 }
 
 .options {
-    display: flex;
-    flex-direction: row;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 .share {
-    margin-top: 15px;
-    height: 20px;
-    width: 30px;
+  margin-top: 15px;
+  height: 20px;
+  width: 30px;
 }
 
 .share:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .heart {
-    height: 50px;
-    width: 100px;
+  height: 50px;
+  width: 100px;
 }
 
 .likes {
-    display: flex;
-    margin-right: 40px;
-    margin-bottom: 10px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  display: flex;
+  margin-right: 40px;
+  margin-bottom: 10px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .username:hover {
-    transform: scale(1.01,1.01);
-    color: var(--pumpkinOrange);
-    cursor: pointer;
+  transform: scale(1.01, 1.01);
+  color: var(--pumpkinOrange);
+  cursor: pointer;
 }
 
 .username {
-    padding-left: 5px;
-    color: var(--bone);
-    text-shadow: 2px 1px 1px black;
-    transition: 1s;
+  padding-left: 5px;
+  color: var(--bone);
+  text-shadow: 2px 1px 1px black;
+  transition: 1s;
 }
 
 .username:active {
-    transform: translateY(4px);
+  transform: translateY(4px);
 }
 
 .emailProfile {
-    padding-left: 5px;
-    color: var(--bone);
-    text-shadow: 2px 1px 1px black;
-    transition: 2s;
+  padding-left: 5px;
+  color: var(--bone);
+  text-shadow: 2px 1px 1px black;
+  transition: 2s;
 }
 
 .contactLabel {
-    padding-left: 5px;
-    color: var(--bone);
-    text-shadow: 2px 1px 1px black;
-    transition: 2s;
+  padding-left: 5px;
+  color: var(--bone);
+  text-shadow: 2px 1px 1px black;
+  transition: 2s;
 }
 
 .feed {
-    margin: auto;
+  margin: auto;
+  padding-left: unset;
+  padding: 10px;
 }

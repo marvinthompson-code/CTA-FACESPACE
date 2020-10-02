@@ -37,9 +37,8 @@ const SharedPost = ({ post }) => {
     try {
       let res = await axios.get(`${API}/users/${id}`);
       let { username } = res.data.body.singleUser;
-    
+
       setOriginal(username);
-      
     } catch (error) {
       // error page
     }
@@ -50,49 +49,43 @@ const SharedPost = ({ post }) => {
     fetchShareInfo(post.original_author);
   }, []);
   return (
-    <>
-      <div className={"shareContainer"}>
-        <h1 id={"shareTitle"}>{user} shared a post!</h1>
-        <div className={"sharedPostDiv"}>
-          <li id={post.id} className={"Post"}>
-            <div className={"userPostInfo"}>
-              <br />
-              <img
-                className={"PostProfilePic"}
-                src={profilePicture}
-                alt={"Profile Picture"}
-                value={post.owner_id}
-              />
-              <br />
-              <h3
-                onClick={() => displayPage(post.owner_id)}
-                className={"username"}
-              >
-                {original}
-              </h3>
-              <button
-                type="button"
-                onClick={() => dispatch(deletePostAsync(post.id))}
-                className={"delete"}
-              >
-                <img src={trashcan} className={"deleteTrash"} />
-              </button>
-            </div>
-            {post.post_image_url === "" ? null : (
-              <img
-                src={post.post_image_url}
-                alt={"facespace post"}
-                className={"faceSpaceImg"}
-              />
-            )}
-            <h2 className={"text"}>{post.content}</h2>
-            <div className={"options"}>
-              <h3 className={"timeStamp"}>{post.time_stamp.slice(0, 10)}</h3>
-            </div>
-          </li>
+    <div className={"shareContainer"}>
+      <h1 id={"shareTitle"}>{user} shared a post!</h1>
+
+      <li id={post.id} className={"Post"}>
+        <div className={"userPostInfo"}>
+          <br />
+          <img
+            className={"PostProfilePic"}
+            src={profilePicture}
+            alt={"Profile Picture"}
+            value={post.owner_id}
+          />
+          <br />
+          <h3 onClick={() => displayPage(post.owner_id)} className={"username"}>
+            {original}
+          </h3>
+          <button
+            type="button"
+            onClick={() => dispatch(deletePostAsync(post.id))}
+            className={"delete"}
+          >
+            <img src={trashcan} className={"deleteTrash"} />
+          </button>
         </div>
-      </div>
-    </>
+        {post.post_image_url === "" ? null : (
+          <img
+            src={post.post_image_url}
+            alt={"facespace post"}
+            className={"faceSpaceImg"}
+          />
+        )}
+        <h2 className={"text"}>{post.content}</h2>
+        <div className={"options"}>
+          <h3 className={"timeStamp"}>{post.time_stamp.slice(0, 10)}</h3>
+        </div>
+      </li>
+    </div>
   );
 };
 

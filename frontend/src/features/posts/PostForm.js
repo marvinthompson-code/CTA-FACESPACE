@@ -62,7 +62,7 @@ const PostForm = () => {
   };
 
   return (
-    <>
+   
       <form onSubmit={handleSubmit} className={"postForm"}>
         <div className={"postInputContainer"}>
           <input
@@ -93,7 +93,7 @@ const PostForm = () => {
           ) : null}
         </div>
       </form>
-    </>
+   
   );
 };
 
