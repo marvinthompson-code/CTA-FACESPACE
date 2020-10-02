@@ -39,7 +39,6 @@ const Posts = () => {
         } else {
           setProfilePicture(profile_picture);
         }
-        debugger;
       } catch (error) {}
       fetchUserInfo(match.params.id);
     };
@@ -66,7 +65,7 @@ const Posts = () => {
   });
 
   return (
-    <div className={"feedPosts"}>
+    <div className={"userFeedPosts"}>
       <h1 className={"userFeedPostsTitle"}>Latest Posts</h1>
       <ul className={"feed"}>
         {feedPosts.length >= 1 ? (

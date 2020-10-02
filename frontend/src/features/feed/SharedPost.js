@@ -37,9 +37,9 @@ const SharedPost = ({ post }) => {
     try {
       let res = await axios.get(`${API}/users/${id}`);
       let { username } = res.data.body.singleUser;
-      debugger;
+    
       setOriginal(username);
-      debugger;
+      
     } catch (error) {
       // error page
     }

@@ -76,10 +76,10 @@ const EditProfilePicModal = () => {
           profile_picture: imageAsUrl,
         },
       });
-      debugger;
+      
     } catch (error) {}
     // need to fix this
-    debugger;
+   
   };
 
   const closeModal = () => {

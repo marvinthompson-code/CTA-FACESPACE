@@ -89,7 +89,7 @@ const SignUp = () => {
         profile_picture: imageAsUrl,
         bio,
       });
-      debugger;
+     
       dispatch(updateUser(res.user));
       history.push("/feed");
     } catch (error) {

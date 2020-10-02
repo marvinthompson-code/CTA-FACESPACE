@@ -23,12 +23,11 @@
 }
 
 .faceSpaceImg {
-    height: 350px;
+    height: auto;
     margin: auto;
-    width: 350px;
+    width: 100%;
     max-width: 350px;
     max-height: 350px;
-    margin-left: 25%;
     box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 10px 0 rgba(0, 0, 0, 0.19);
     border: 5px solid var(--bone);
     border-width: thin;
@@ -110,7 +109,7 @@
 }
 
 .delete {
-    margin-left: 70%;
+   
     
 }
 
@@ -200,4 +199,8 @@
     color: var(--bone);
     text-shadow: 2px 1px 1px black;
     transition: 2s;
+}
+
+.feed {
+    margin: auto;
 }

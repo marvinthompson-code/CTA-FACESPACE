@@ -34,10 +34,10 @@ export const createNewPost = (post) => async (dispatch, getState) => {
       },
     });
     let { newPost } = res.data.body;
-    debugger;
+  
     dispatch(addPost(newPost));
   } catch (error) {
-    debugger;
+  
   }
 };
 

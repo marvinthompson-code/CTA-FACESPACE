@@ -58,10 +58,16 @@ input {
   transition: 2s;
   margin: 5px;
   font-family: railwayLight;
+  transition: 2s;
 }
 
 .loginButton:active {
   transform: translateY(4px);
+}
+
+.loginButton:hover {
+    background-color: var(--pumpkinOrange);
+    color: var(--englishVioletDarker);
 }
 
 .guestSubmitButton {
@@ -78,15 +84,18 @@ input {
   font-family: railwayLight;
   margin: 5px;
   margin-bottom: 5px;
+  transition: 2s;
+}
+
+.guestSubmitButton:hover {
+    background-color: var(--pumpkinOrange);
+    color: var(--englishVioletDarker);
 }
 
 .guestSubmitButton:active {
   transform: translateY(4px);
 }
 
-.navItem {
-  padding-left: 30px;
-}
 
 .loginForm {
   vertical-align: center;
@@ -97,22 +106,36 @@ input {
   width: 60%;
   border-radius: 10px;
   border-color: lightgray;
-  background-color: white;
+  background: rgb(210, 210, 210);
+  background: rgb(241, 241, 241);
+  background: linear-gradient(
+    360deg,
+    rgba(241, 241, 241, 0.6292892156862745) 10%,
+    rgba(215, 215, 215, 0.427608543417367) 34%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  
+
   border-width: thin;
+  transition: 2s;
   font-family: railwayLight;
   box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.loginForm:hover {
+    background-color: white;
 }
 
 @media only screen and (max-width: 600px) {
   .loginForm {
     margin-top: 25%;
+    width: 90%;
   }
 }
 
-
 .logoLogin {
   /* margin: auto; */
-  padding-top: unset;
+  padding-top: 5px;
   /* width: 100%; */
   text-align: center;
   height: 100px;
@@ -120,12 +143,12 @@ input {
 }
 
 @media only screen and (max-width: 600px) {
- .logoLogin {
-     height: 100%;
-     margin: auto;
-     width: 100%;
-     font-size: 3vh;
- }
+  .logoLogin {
+    height: 100%;
+    margin: auto;
+    width: 100%;
+    font-size: 3vh;
+  }
 }
 
 .loginLogoDiv {
@@ -141,4 +164,9 @@ input {
   width: 100%;
   text-align: center;
   margin: auto;
+  
 }
+
+
+
+
