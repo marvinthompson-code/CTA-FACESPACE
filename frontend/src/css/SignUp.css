@@ -62,7 +62,7 @@ ul {
   color: var(--englishViolet);
   margin-top: 10%;
   font-family: railwayLight;
-  font-size: xxx-large;
+  font-size: 5vh;
   margin-bottom: unset;
   text-shadow: 1px 1px 1px var(--englishVioletDarker);
   text-align: center;

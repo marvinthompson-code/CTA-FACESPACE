@@ -21,7 +21,7 @@
 #shareTitle {
     font-family: railwayLight;
     text-align: center;
-    font-size: large;
+    font-size: 3vh;
     color: whitesmoke;
     text-shadow: 2px 1px 1px black;
     transition: 1s;

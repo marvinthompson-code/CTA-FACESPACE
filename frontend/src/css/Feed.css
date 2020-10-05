@@ -24,23 +24,31 @@
 .faceSpaceImg {
   height: auto;
   margin: auto;
+  margin: 3px;
   width: 100%;
-  max-width: 350px;
-  max-height: 350px;
+  max-width: 60%;
+  max-height: 400px;
   box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 10px 0 rgba(0, 0, 0, 0.19);
   border: 5px solid var(--bone);
   border-width: thin;
   border-radius: 10px;
 }
+.postImageDiv {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
 
 .feedPosts {
+  padding: 20px;
   border-style: none;
   border-radius: 10px;
   border: 10px solid var(--englishVioletDarker);
   margin: auto;
   background-color: var(--englishVioletDarker);
   overflow: scroll;
-  height: 600px;
+  height: auto;
   box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -102,7 +110,7 @@
   border: 5px solid var(--englishViolet);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 10px;
-  width: 100%;
+  /* width: 100%; */
 
   margin: auto;
   margin-bottom: 10px;
@@ -128,7 +136,7 @@
   text-align: center;
   margin: auto;
   font-family: railwayLight;
-  font-size: large;
+  font-size: 2.5vh;
   font-weight: lighter;
   padding: 10px;
   /* padding-left: 5px; */
@@ -145,14 +153,17 @@
 }
 .userPostInfo {
   display: flex;
-  padding-right: 10px;
+  
   flex-direction: row;
-  /* background: rgb(255,111,89);
-    background: radial-gradient(circle, rgba(255,111,89,1) 0%, rgba(219,80,74,1) 100%); */
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
 }
 
+.postInfoCol {
+  display: flex;
+  margin: 5px;
+  flex-direction: column;
+}
 .options {
   display: flex;
   flex-direction: row;
@@ -191,6 +202,8 @@
 .username {
   padding-left: 5px;
   color: var(--bone);
+  font-size: 2.5vh;
+  width: auto;
   text-shadow: 2px 1px 1px black;
   transition: 1s;
 }

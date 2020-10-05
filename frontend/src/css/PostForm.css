@@ -30,13 +30,17 @@
 }
 
 .postForm {
-  margin-top: 7%;
-
+  margin-top: 10%;
   justify-content: center;
   text-align: center;
-
   flex-direction: row;
 }
+
+@media only screen and (max-width: 600px) {
+    .postForm {
+      margin-top: 25%;
+    }
+  }
 
 .inputForm {
   width: 100%;
@@ -48,6 +52,8 @@
 
 .submit {
   height: 50px;
+  width: 80%;
+  margin: 5px;
   transition: 2s;
   background-color: var(--romanSilver);
   color: var(--bone);
@@ -65,7 +71,8 @@
 
 .upload {
   height: 50px;
-  width: 20%;
+  margin: 5px;
+  width: 80%;
   background-color: var(--romanSilver);
   color: var(--bone);
   border-radius: 10px;
@@ -82,6 +89,8 @@
 .uploadInput {
   height: 35px;
   transition: 2s;
+  width: 60%;
+  margin: 5px;
   border-radius: 10px;
   background-color: var(--englishVioletDarker);
   color: var(--bone);

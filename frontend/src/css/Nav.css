@@ -50,8 +50,9 @@ nav-link {
   }
 
   a {
-      font-size: 3vh;
+      font-size: 2.5vh;
       padding: 5px;
+      margin: 5px;
   }
 .logOut:hover {
     color: white;
@@ -63,6 +64,7 @@ nav-link {
     border-radius: 10px;
     border-style: none;
     transition: 2s;
+    height: auto;
     font-family: railwayLight;
 }
 
