@@ -37,7 +37,6 @@
   border-style: none;
   border-radius: 10px;
   border: 10px solid var(--englishVioletDarker);
-  width: 100%;
   margin: auto;
   background-color: var(--englishVioletDarker);
   overflow: scroll;

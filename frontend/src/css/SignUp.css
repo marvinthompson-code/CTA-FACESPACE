@@ -1,87 +1,147 @@
 :root {
-    --pumpkinOrange: #ec9b59;
-    --pink: #f4d8cd;
-    --lightGreen: #9eb19e;
-    --darkGreen: #164444;
-    --darkBlue: #00202b;
-    --goldenRod: #EAF0CE;
-    --bone: #D5DBC8;
-    --silverSand: #C0C5C1;
-    --silverChalice:#B0B5B5;
-    --quickSilver: #9FA5A9;
-    --romanSilver: #7D8491;
-    --oldLavender: #6A6879;
-    --oldLavenderDark: #615A6D;
-    --englishViolet: #574B60;
-    --englishVioletDarker: #3F334D;
-  }
-
-
-@font-face {
-    src: url('../fonts/Raleway-Light.ttf');
-    font-family: railwayLight;
+  --pumpkinOrange: #ec9b59;
+  --pink: #f4d8cd;
+  --lightGreen: #9eb19e;
+  --darkGreen: #164444;
+  --darkBlue: #00202b;
+  --goldenRod: #eaf0ce;
+  --bone: #d5dbc8;
+  --silverSand: #c0c5c1;
+  --silverChalice: #b0b5b5;
+  --quickSilver: #9fa5a9;
+  --romanSilver: #7d8491;
+  --oldLavender: #6a6879;
+  --oldLavenderDark: #615a6d;
+  --englishViolet: #574b60;
+  --englishVioletDarker: #3f334d;
 }
 
+@font-face {
+  src: url("../fonts/Raleway-Light.ttf");
+  font-family: railwayLight;
+}
 
 .SignUp {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    padding-left: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
 input {
-    justify-content: space-evenly;
-    background-color: whitesmoke;
-    height: 30px;
-    width: 200px;
-    font-size: large;
+  justify-content: space-evenly;
+  background-color: whitesmoke;
+  height: 30px;
+  width: 200px;
+  font-size: large;
+}
+
+.signUpInput {
+  justify-content: space-evenly;
+  background-color: whitesmoke;
+  height: 30px;
+  width: 100%;
+  font-size: large;
 }
 
 ul {
-    list-style: none;
+  list-style: none;
 }
 
 .info {
-    font-size: 3vh;
+  font-size: 3vh;
 }
 
 .submitButton {
-    width: 15%;
-    height: 30px;
-    font-size: large;
+  width: 15%;
+  height: 30px;
+  font-size: large;
 }
 
 .signUpTitle {
-    color: var(--englishViolet);
-    margin-top: 10%;
-    font-family: railwayLight;
-    font-size: xxx-large;
-    text-shadow: 1px 1px 1px var(--englishVioletDarker);
-    text-align: center;
+  color: var(--englishViolet);
+  margin-top: 10%;
+  font-family: railwayLight;
+  font-size: xxx-large;
+  margin-bottom: unset;
+  text-shadow: 1px 1px 1px var(--englishVioletDarker);
+  text-align: center;
 }
 
 @media only screen and (max-width: 600px) {
-    .signUpTitle {
-      margin-top: 25%;
-      text-align: center;
-    }
+  .signUpTitle {
+    margin-top: 25%;
+    text-align: center;
   }
-
+}
 
 .signupInfo {
-    color: var(--oldLavender);
-    font-family: railwayLight;
-    padding-left: unset;
-    font: xx-large;font-size: 2vh;
-    text-shadow: 1px 1px 1px var(--oldLavenderDark);
-    text-align: center;
+  color: var(--oldLavender);
+  font-family: railwayLight;
+  padding-left: unset;
+
+  font: xx-large;
+  font-size: 2vh;
+  text-shadow: 1px 1px 1px var(--oldLavenderDark);
+  text-align: center;
+}
+
+.formContainerSignUp {
+  width: 60%;
+  margin: auto;
 }
 
 .bioTextArea {
-    font-family: railwayLight;
-    height: 80px;
-    width: 200px;
-    font-size: large;
+  font-family: railwayLight;
+  height: 80px;
+  width: 100%;
+  font-size: large;
+}
+
+.uploadSignUp {
+  height: 50px;
+  width: 100%;
+  margin: 5px;
+  background-color: var(--romanSilver);
+  color: var(--bone);
+  border-radius: 10px;
+  border-style: none;
+  transition: 2s;
+  font-family: railwayLight;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.uploadInputSignUp {
+  height: 35px;
+  transition: 2s;
+  border-radius: 10px;
+  background-color: var(--englishVioletDarker);
+  color: var(--bone);
+  border-radius: 10px;
+  border-style: none;
+  transition: 2s;
+  font-family: railwayLight;
+  width: 60%;
+  margin: 5px;
+}
+
+.signUpSubmit {
+  width: 100%;
+  height: 50px;
+  font-size: large;
+  padding-bottom: 5px;
+  background-color: var(--englishVioletDarker);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  color: var(--bone);
+  border-radius: 10px;
+  border-style: none;
+  transition: 2s;
+  font-family: railwayLight;
+  margin-bottom: 5px;
+  transition: 2s;
+}
+
+.signUpSubmit:hover {
+    background-color: var(--pumpkinOrange);
+    color: var(--englishVioletDarker);
 }

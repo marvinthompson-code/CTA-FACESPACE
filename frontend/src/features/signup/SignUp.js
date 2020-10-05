@@ -89,7 +89,7 @@ const SignUp = () => {
         profile_picture: imageAsUrl,
         bio,
       });
-     
+
       dispatch(updateUser(res.user));
       history.push("/feed");
     } catch (error) {
@@ -99,7 +99,7 @@ const SignUp = () => {
   };
 
   return (
-    <div>
+    <>
       <h2 className={"signUpTitle"}>Sign Up!</h2>
       <FadeIn>
         <ul className={"signupInfo"}>
@@ -107,66 +107,72 @@ const SignUp = () => {
           <li className={"info"}>Make a custom Profile!</li>
         </ul>
       </FadeIn>
-      <form onSubmit={handleSubmit} className={"SignUp"}>
-        {error ? <div>{error}</div> : null}
-        <input
-          placeholder={"Full Name"}
-          value={fullName}
-          onChange={(e) => setFullName(e.currentTarget.value)}
-          required
-        ></input>
-        <br></br>
-        <input
-          placeholder={"Email"}
-          value={email}
-          onChange={(e) => setEmail(e.currentTarget.value)}
-          required
-        ></input>
-        <br></br>
-        <input
-          placeholder={"username"}
-          value={username}
-          onChange={(e) => setUsername(e.currentTarget.value)}
-          required
-        ></input>
-        <br></br>
-        <input
-          placeholder={"password"}
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.currentTarget.value)}
-          required
-        ></input>
-        <br></br>
-        <textarea
-          placeholder={"Add a short bio!"}
-          value={bio}
-          onChange={(e) => setBio(e.currentTarget.value)}
-          className="bioTextArea"
-        ></textarea>
-        <br></br>
-        <label className="contactLabel">Upload Profile Picture</label>
-        <input
-          type={"file"}
-          className={"uploadInput"}
-          onChange={handleImageAsFile}
-        />
-        <button
-          type={"button"}
-          className={"upload"}
-          onClick={handleFireBaseUpload}
-        >
-          Upload Image
-        </button>
-        {toggleUploadMsg ? (
-          <h5 id="uploadSuccess">Upload successful!</h5>
-        ) : null}
-        <br></br>
-        <button className={"submitButton"} type={"submit"}>
-          Sign me up!
-        </button>
-      </form>
-    </div>
+      <div className="formContainerSignUp">
+        <form onSubmit={handleSubmit} className={"SignUp"}>
+          {error ? <div>{error}</div> : null}
+          <input
+            placeholder={"Full Name"}
+            className="signUpInput"
+            value={fullName}
+            onChange={(e) => setFullName(e.currentTarget.value)}
+            required
+          ></input>
+          <br></br>
+          <input
+            placeholder={"Email"}
+            className="signUpInput"
+            value={email}
+            onChange={(e) => setEmail(e.currentTarget.value)}
+            required
+          ></input>
+          <br></br>
+          <input
+            placeholder={"username"}
+            className="signUpInput"
+            value={username}
+            onChange={(e) => setUsername(e.currentTarget.value)}
+            required
+          ></input>
+          <br></br>
+          <input
+            placeholder={"password"}
+            className="signUpInput"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.currentTarget.value)}
+            required
+          ></input>
+          <br></br>
+          <textarea
+            placeholder={"Add a short bio!"}
+            value={bio}
+            onChange={(e) => setBio(e.currentTarget.value)}
+            className="bioTextArea"
+          ></textarea>
+          <br></br>
+          <label className="contactLabel">Upload Profile Picture</label>
+          <input
+            type={"file"}
+            className={"uploadInputSignUp"}
+            onChange={handleImageAsFile}
+          />
+          <button
+            type={"button"}
+            className={"uploadSignUp"}
+            onClick={handleFireBaseUpload}
+          >
+            Upload Image
+          </button>
+          {toggleUploadMsg ? (
+            <h5 id="uploadSuccess">Upload successful!</h5>
+          ) : null}
+          <br></br>
+          <button className={"signUpSubmit"} type={"submit"}>
+            Sign me up!
+          </button>
+        </form>
+      </div>
+    </>
   );
 };
 
