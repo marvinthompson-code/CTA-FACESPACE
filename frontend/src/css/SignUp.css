@@ -44,7 +44,7 @@ ul {
 }
 
 .info {
-    font-size: x-large;
+    font-size: 3vh;
 }
 
 .submitButton {
@@ -55,16 +55,26 @@ ul {
 
 .signUpTitle {
     color: var(--englishViolet);
+    margin-top: 10%;
     font-family: railwayLight;
     font-size: xxx-large;
     text-shadow: 1px 1px 1px var(--englishVioletDarker);
     text-align: center;
 }
 
+@media only screen and (max-width: 600px) {
+    .signUpTitle {
+      margin-top: 25%;
+      text-align: center;
+    }
+  }
+
+
 .signupInfo {
     color: var(--oldLavender);
     font-family: railwayLight;
-    font: xx-large;
+    padding-left: unset;
+    font: xx-large;font-size: 2vh;
     text-shadow: 1px 1px 1px var(--oldLavenderDark);
     text-align: center;
 }
