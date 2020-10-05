@@ -1,86 +1,94 @@
 :root {
-    --pumpkinOrange: #ec9b59;
-    --pink: #f4d8cd;
-    --lightGreen: #9eb19e;
-    --darkGreen: #164444;
-    --darkBlue: #00202b;
-    --goldenRod: #EAF0CE;
-    --bone: #D5DBC8;
-    --silverSand: #C0C5C1;
-    --silverChalice:#B0B5B5;
-    --quickSilver: #9FA5A9;
-    --romanSilver: #7D8491;
-    --oldLavender: #6A6879;
-    --oldLavenderDark: #615A6D;
-    --englishViolet: #574B60;
-    --englishVioletDarker: #3F334D;
-  }
+  --pumpkinOrange: #ec9b59;
+  --pink: #f4d8cd;
+  --lightGreen: #9eb19e;
+  --darkGreen: #164444;
+  --darkBlue: #00202b;
+  --goldenRod: #eaf0ce;
+  --bone: #d5dbc8;
+  --silverSand: #c0c5c1;
+  --silverChalice: #b0b5b5;
+  --quickSilver: #9fa5a9;
+  --romanSilver: #7d8491;
+  --oldLavender: #6a6879;
+  --oldLavenderDark: #615a6d;
+  --englishViolet: #574b60;
+  --englishVioletDarker: #3f334d;
+}
 
 @font-face {
-    src: url('../fonts/Raleway-Light.ttf');
-    font-family: railwayLight;
+  src: url("../fonts/Raleway-Light.ttf");
+  font-family: railwayLight;
 }
 
 .userFeedPosts {
-    border-style: solid;
-    width: 60%;
-    margin: auto;  
-    /* background: rgb(50,41,154);
+  border-style: solid;
+  /* width: 60%; */
+  padding: 20px;
+  border-style: none;
+  border-radius: 10px;
+  border: 10px solid var(--englishVioletDarker);
+  margin: auto;
+  background-color: var(--englishVioletDarker);
+  overflow: scroll;
+  height: auto;
+  box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  /* background: rgb(50,41,154);
     background: linear-gradient(0deg, rgba(50,41,154,0.8869922969187675) 13%, rgba(106,116,135,1) 100%); */
 }
 
 .userFeedPostsTitle {
-    font-family: railwayLight;
-    color: var(--bone);
-    text-align: center;
-    text-shadow: 2px 1px 1px black;
+  font-family: railwayLight;
+  color: var(--bone);
+  text-align: center;
+  text-shadow: 2px 1px 1px black;
 }
 
 .noFeed {
-    font-family: railwayLight;
-    color: var(--bone);
-    text-align: center;
-    text-shadow: 2px 1px 1px black;
+  font-family: railwayLight;
+  color: var(--bone);
+  text-align: center;
+  text-shadow: 2px 1px 1px black;
 }
 
 .delete {
-    height: 20px;
-    border-radius: 10px;
-    background-color: var(--bone);
-    border-color: var(--englishVioletDarker);
+  height: 20px;
+  border-radius: 10px;
+  background-color: var(--bone);
+  border-color: var(--englishVioletDarker);
 }
 
 .deleteTrash {
-    height: 10px;
-    transition: 1s;
+  height: 10px;
+  transition: 1s;
 }
 .deleteTrash:hover {
-    cursor: pointer;    
+  cursor: pointer;
 }
 .text {
-    text-align: left;
-    font-size: 2.5vh;
-    font-weight: lighter;
-    padding: 10px;
+  text-align: left;
+  font-size: 2.5vh;
+  font-weight: lighter;
+  padding: 10px;
 }
 
 .PostProfilePic {
-    height: 50px;
-    border-radius: 10px;
-    border-style: solid;
-    border-color: var(--englishViolet)
+  height: 50px;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: var(--englishViolet);
 }
 
 .PostProfilePic:hover {
-    color: skyblue;
-    opacity: 1;
+  color: skyblue;
+  opacity: 1;
 }
 .userPostInfo {
-    display: flex;
-    padding-right: 10px;
-    border: 2px solid var(--englishViolet);
-    /* border-radius: 10px; */
-    height: 100%;
-    flex-direction: row;
-    background: var(--englishViolet);
+  display: flex;
+  padding-right: 10px;
+  border: 2px solid var(--englishViolet);
+  /* border-radius: 10px; */
+  height: 100%;
+  flex-direction: row;
+  background: var(--englishViolet);
 }

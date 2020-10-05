@@ -80,11 +80,13 @@ const ProfilePost = ({ post }) => {
         {deleteButton()}
       </div>
       {post.post_image_url === "" ? null : (
-        <img
-          src={post.post_image_url}
-          alt={"facespace post"}
-          className={"faceSpaceImg"}
-        />
+        <div className="postImageDiv">
+          <img
+            src={post.post_image_url}
+            alt={"facespace post"}
+            className={"faceSpaceImg"}
+          />
+        </div>
       )}
       <h2 className={"text"}>{post.content}</h2>
       <div className={"options"}>

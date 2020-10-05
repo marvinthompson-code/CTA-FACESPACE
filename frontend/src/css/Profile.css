@@ -45,7 +45,8 @@
     border-color: var(--englishViolet);
     border-radius: 10px;
     box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 10px 0 rgba(0, 0, 0, 0.19);
-    width: 50%;
+    width: 80%;
+    margin-bottom: 5px;
     background-color:var(--englishViolet);
 }
 
