@@ -50,6 +50,11 @@
     background-color:var(--englishViolet);
 }
 
+@media screen and (min-width: 1400px) {
+    .BasicInfo{
+      width: 70%;
+    }
+  }
 .contact {
     padding-top: 15px;
     border-style: solid;
