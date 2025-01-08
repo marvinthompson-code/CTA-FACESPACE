@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { storage } from "../../firebase";
+import { db } from "../../firebase";
 import { useDispatch } from "react-redux";
 import { createNewPost } from "./postsSlice";
 import "../../css/PostForm.css";
@@ -25,7 +25,7 @@ const PostForm = () => {
     if (imageAsFile === "") {
       alert(`Please choose a valid file before uploading`);
     } else if (imageAsFile !== null) {
-      const uploadTask = storage
+      const uploadTask = db
         .ref(`/images/${imageAsFile.name}`)
         .put(imageAsFile);
       uploadTask.on(
@@ -40,7 +40,7 @@ const PostForm = () => {
           console.log(err);
         },
         () => {
-          storage
+          db
             .ref("images")
             .child(imageAsFile.name)
             .getDownloadURL()

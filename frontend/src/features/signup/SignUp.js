@@ -3,7 +3,7 @@ import FadeIn from "react-fade-in";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { updateUser } from "../user/userSlice";
-import { storage } from "../../firebase";
+import { db } from "../../firebase";
 import { useDispatch } from "react-redux";
 import { apiURL } from "../../util/apiURL";
 import { signUp } from "../../util/firebaseFunctions";
@@ -40,7 +40,7 @@ const SignUp = () => {
     if (imageAsFile === "") {
       alert(`Please choose a valid file before uploading`);
     } else if (imageAsFile !== null) {
-      const uploadTask = storage
+      const uploadTask = db
         .ref(`/images/${imageAsFile.name}`)
         .put(imageAsFile);
       uploadTask.on(
@@ -55,7 +55,7 @@ const SignUp = () => {
           console.log(err);
         },
         () => {
-          storage
+          db
             .ref("images")
             .child(imageAsFile.name)
             .getDownloadURL()

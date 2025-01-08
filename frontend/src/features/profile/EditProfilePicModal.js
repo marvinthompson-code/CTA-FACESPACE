@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import FadeIn from "react-fade-in";
 import { useRouteMatch } from "react-router-dom";
 import axios from "axios";
-import { storage } from "../../firebase";
+import { db } from "../../firebase";
 import { useSelector, useDispatch } from "react-redux";
 import { toggleModalState } from "../modal/modalSlice";
 import Modal from "react-modal";
@@ -36,7 +36,7 @@ const EditProfilePicModal = () => {
     if (imageAsFile === "") {
       alert(`Please choose a valid file before uploading`);
     } else if (imageAsFile !== null) {
-      const uploadTask = storage
+      const uploadTask = db
         .ref(`/images/${imageAsFile.name}`)
         .put(imageAsFile);
       uploadTask.on(
@@ -51,7 +51,7 @@ const EditProfilePicModal = () => {
           console.log(err);
         },
         () => {
-          storage
+          db
             .ref("images")
             .child(imageAsFile.name)
             .getDownloadURL()

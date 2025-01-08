@@ -3,7 +3,7 @@ import './App.css';
 import Nav from './Nav'
 import { Route, Switch, Redirect } from 'react-router-dom'
 import { updateUser } from './features/user/userSlice'
-import firebase from './firebase'
+import { onAuthStateChanged, getAuth } from "firebase/auth";
 import EditProfilePicModal from './features/profile/EditProfilePicModal'
 import Login from './features/login/Login'
 import SignUp from './features/signup/SignUp'
@@ -11,7 +11,7 @@ import Profile from './features/profile/Profile'
 import Feed from './features/feed/Feed'
 import PostForm from './features/posts/PostForm'
 import Posts from './features/profile/Posts'
-import { AuthRoute, ProtectedRoute } from './util/routesUtil'
+import { ProtectedRoute, AuthRoute } from './util/routesUtil'
 import { selectLoading } from './features/loading/loadingSlice';
 import { useSelector, useDispatch } from 'react-redux'
 import { css } from "@emotion/core";
@@ -26,9 +26,11 @@ function App() {
   border-color: red;
 `;
 
+
+  const auth = getAuth()
   const dispatch = useDispatch()
   useEffect(() => {
-    const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
       dispatch(updateUser(user))
     })
     

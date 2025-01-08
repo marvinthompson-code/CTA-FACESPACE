@@ -1,18 +1,21 @@
 import firebase from "../firebase";
 
+import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth";
+
+const auth = getAuth();
+
 export const logout = () => {
-  return firebase.auth().signOut();
+  return signOut(auth);
 };
 
 export const login = (email, password) => {
-  return firebase.auth().signInWithEmailAndPassword(email, password);
+  return signInWithEmailAndPassword(auth, email, password);
 };
 
 export const signUp = (email, password) => {
-  console.log("This is email", email, password);
-  return firebase.auth().createUserWithEmailAndPassword(email, password);
+  return createUserWithEmailAndPassword(auth, email, password);
 };
 
 export const getFirebaseIdToken = () => {
-  return firebase.auth().currentUser.getIdToken(false);
+  return auth.currentUser.getIdToken(false);
 };
