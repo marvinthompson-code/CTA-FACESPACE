@@ -1,4 +1,4 @@
-\c face_space_database;
+-- \c face_space_database;
 
 INSERT INTO users
     (id, email, username, full_name, profile_picture, bio)

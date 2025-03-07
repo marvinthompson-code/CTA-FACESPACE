@@ -38,6 +38,9 @@ const Login = () => {
       setError(err.message);
     }
   };
+  debugger
+
+  console.log(email)
 
   return (
     <div className="container">
